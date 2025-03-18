@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Literaturverzeichnis – Skriptum - Einführung in die Statistik</title>
+<title>4&nbsp; Der t-Test – Skriptum - Einführung in die Statistik</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,26 +20,7 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -49,7 +30,8 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./ethics.html" rel="prev">
+<link href="./stats_anova.html" rel="next">
+<link href="./stats_estimation.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -112,7 +94,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./references.html">Literaturverzeichnis</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./stats_ttest.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Der t-Test</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Suchen" onclick="window.quartoOpenSearch();">
@@ -163,7 +145,7 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./stats_ttest.html" class="sidebar-item-text sidebar-link">
+  <a href="./stats_ttest.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Der t-Test</span></span></a>
   </div>
 </li>
@@ -199,7 +181,7 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link active">
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Literaturverzeichnis</span></a>
   </div>
 </li>
@@ -216,7 +198,7 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Literaturverzeichnis</h1>
+<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Der t-Test</span></h1>
 </div>
 
 
@@ -233,141 +215,6 @@ div.csl-indent {
 </header>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-altman1995" class="csl-entry" role="listitem">
-Altman, Douglas G, and J Martin Bland. 1995. <span>“Statistics Notes:
-Absence of Evidence Is Not Evidence of Absence.”</span> <em>Bmj</em> 311
-(7003): 485.
-</div>
-<div id="ref-berger2003" class="csl-entry" role="listitem">
-Berger, James O. 2003. <span>“Could Fisher, Jeffreys and Neyman Have
-Agreed on Testing?”</span> <em>Statistical Science</em> 18 (1): 1–32.
-</div>
-<div id="ref-borg2023" class="csl-entry" role="listitem">
-Borg, David N, Adrian G Barnett, Aaron R Caldwell, Nicole M White, and
-Ian B Stewart. 2023. <span>“The Bias for Statistical Significance in
-Sport and Exercise Medicine.”</span> <em>Journal of Science and Medicine
-in Sport</em> 26 (3): 164–68.
-</div>
-<div id="ref-button2013" class="csl-entry" role="listitem">
-Button, K. S., J. P. Ioannidis, C. Mokrysz, B. A. Nosek, J. Flint, E. S.
-Robinson, and M. R. Munafo. 2013. <span>“Power Failure: Why Small Sample
-Size Undermines the Reliability of Neuroscience.”</span> <em>Nat Rev
-Neurosci</em> 14 (5): 365–76. <a href="https://doi.org/10.1038/nrn3475">https://doi.org/10.1038/nrn3475</a>.
-</div>
-<div id="ref-christensen2018" class="csl-entry" role="listitem">
-Christensen, Ronald. 2018. <em>Analysis of Variance, Design, and
-Regression: Linear Modeling for Unbalanced Data</em>. CRC Press.
-</div>
-<div id="ref-coleman2023" class="csl-entry" role="listitem">
-Coleman, Max, Ryan Burke, Cristina Benavente, Alec Piñero, Francesca
-Augustin, Jaime Maldonado, James P. Fisher, Douglas Oberlin, Andrew D.
-Vigotsky, and Brad J. Schoenfeld. 2023. <span>“Supervision During
-Resistance Training Positively Influences Muscular Adaptations in
-Resistance-Trained Individuals.”</span> <em>Journal of Sports
-Sciences</em> 41 (12): 1207–17. <a href="https://doi.org/10.1080/02640414.2023.2261090">https://doi.org/10.1080/02640414.2023.2261090</a>.
-</div>
-<div id="ref-cumming2013" class="csl-entry" role="listitem">
-Cumming, Geoff. 2013. <em>Understanding the New Statistics: Effect
-Sizes, Confidence Intervals, and Meta-Analysis</em>. Routledge.
-</div>
-<div id="ref-djulbegovic2007" class="csl-entry" role="listitem">
-Djulbegovic, B., and I. Hozo. 2007. <span>“When Should Potentially False
-Research Findings Be Considered Acceptable?”</span> <em>PLoS Med</em> 4
-(2): e26. <a href="https://doi.org/10.1371/journal.pmed.0040026">https://doi.org/10.1371/journal.pmed.0040026</a>.
-</div>
-<div id="ref-fisher1935" class="csl-entry" role="listitem">
-Fisher, Ronald A. 1935. <span>“The Logic of Inductive Inference.”</span>
-<em>Journal of the Royal Statistical Society</em> 98 (1): 39–82.
-</div>
-<div id="ref-gigerenzer2004" class="csl-entry" role="listitem">
-Gigerenzer, Gerd. 2004. <span>“Mindless Statistics.”</span> <em>The
-Journal of Socio-Economics</em> 33 (5): 587–606.
-</div>
-<div id="ref-grant1996" class="csl-entry" role="listitem">
-Grant, S., H. Hynes, A. Whittaker, and T. Aitchison. 1996.
-<span>“Anthropometric, Strength, Endurance and Flexibility
-Characteristics of Elite and Recreational Climbers.”</span> <em>Journal
-of Sports Sciences</em> 14 (4): 301–9. <a href="https://doi.org/10.1080/02640419608727715">https://doi.org/10.1080/02640419608727715</a>.
-</div>
-<div id="ref-greenland2016" class="csl-entry" role="listitem">
-Greenland, Sander, Stephen J Senn, Kenneth J Rothman, John B Carlin,
-Charles Poole, Steven N Goodman, and Douglas G Altman. 2016.
-<span>“Statistical Tests, p Values, Confidence Intervals, and Power: A
-Guide to Misinterpretations.”</span> <em>European Journal of
-Epidemiology</em> 31: 337–50.
-</div>
-<div id="ref-haeffel2022" class="csl-entry" role="listitem">
-Haeffel, Gerald J. 2022. <span>“Psychology Needs to Get Tired of
-Winning.”</span> <em>Royal Society Open Science</em> 9 (6): 220099.
-</div>
-<div id="ref-hager2013" class="csl-entry" role="listitem">
-Hager, Willi. 2013. <span>“The Statistical Theories of Fisher and of
-Neyman and Pearson: A Methodological Perspective.”</span> <em>Theory
-&amp; Psychology</em> 23 (2): 251–70.
-</div>
-<div id="ref-hoekstra2014" class="csl-entry" role="listitem">
-Hoekstra, Rink, Richard D Morey, Jeffrey N Rouder, and Eric-Jan
-Wagenmakers. 2014. <span>“Robust Misinterpretation of Confidence
-Intervals.”</span> <em>Psychonomic Bulletin &amp; Review</em> 21:
-1157–64.
-</div>
-<div id="ref-hubbard2003" class="csl-entry" role="listitem">
-Hubbard, Raymond, and Marı́a Jesús Bayarri. 2003. <span>“Confusion over
-Measures of Evidence (p’s) Versus Errors (<span class="math inline"><em>α</em></span>’s) in Classical Statistical
-Testing.”</span> <em>The American Statistician</em> 57 (3): 171–78.
-</div>
-<div id="ref-kadlec2022" class="csl-entry" role="listitem">
-Kadlec, Daniel, Kristin L Sainani, and Sophia Nimphius. 2022.
-<span>“With Great Power Comes Great Responsibility: Common Errors in
-Meta-Analyses and Meta-Regressions in Strength &amp; Conditioning
-Research.”</span> <em>Sports Medicine</em>, 1–13.
-</div>
-<div id="ref-lehmann1993" class="csl-entry" role="listitem">
-Lehmann, Erich L. 1993. <span>“The Fisher, Neyman-Pearson Theories of
-Testing Hypotheses: One Theory or Two?”</span> <em>Journal of the
-American Statistical Association</em> 88 (424): 1242–49.
-</div>
-<div id="ref-loucca2008" class="csl-entry" role="listitem">
-Louçã, Francisco. 2008. <span>“The Widest Cleft in Statistics: How and
-Why Fisher Opposed Neyman and Pearson.”</span>
-</div>
-<div id="ref-mayo2018" class="csl-entry" role="listitem">
-Mayo, Deborah G. 2018. <em>Statistical Inference as Severe Testing: How
-to Get Beyond the Statistics Wars</em>. Cambridge University Press.
-</div>
-<div id="ref-neyman1935" class="csl-entry" role="listitem">
-Neyman, Jerzy. 1935. <span>“On the Problem of Confidence
-Intervals.”</span> <em>Biometrika</em> 26: 404–13.
-</div>
-<div id="ref-neyman1956" class="csl-entry" role="listitem">
-———. 1956. <span>“Note on an Article by Sir Ronald Fisher.”</span>
-<em>Journal of the Royal Statistical Society Series B: Statistical
-Methodology</em> 18 (2): 288–94.
-</div>
-<div id="ref-nuzzo2014" class="csl-entry" role="listitem">
-Nuzzo, Regina. 2014. <span>“Scientific Method: Statistical
-Errors.”</span> <em>Nature</em> 506 (7487).
-</div>
-<div id="ref-sandercock2024" class="csl-entry" role="listitem">
-Sandercock, Gavin. 2024. <span>“The Standard Error/Standard Deviation
-Mix-up: Potential Impacts on Meta-Analyses in Sports Medicine.”</span>
-<em>Sports Medicine</em>, 1–10.
-</div>
-<div id="ref-spiegelhalter2019" class="csl-entry" role="listitem">
-Spiegelhalter, David. 2019. <em>The Art of Statistics: Learning from
-Data</em>. Penguin UK.
-</div>
-<div id="ref-wasserstein2016" class="csl-entry" role="listitem">
-Wasserstein, Ronald L, and Nicole A Lazar. 2016. <span>“The ASA
-Statement on p-Values: Context, Process, and Purpose.”</span> Taylor
-&amp; Francis.
-</div>
-<div id="ref-wild2000" class="csl-entry" role="listitem">
-Wild, Christopher J, and Georg AF Seber. 2000. <em>Chance Encounters: A
-First Course in Data Analysis and Inference</em>. Wiley Press.
-</div>
-</div>
 
 
 
@@ -791,11 +638,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./ethics.html" class="pagination-link" aria-label="Ethik">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Ethik</span></span>
+      <a href="./stats_estimation.html" class="pagination-link" aria-label="Parameterschätzung">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Parameterschätzung</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="./stats_anova.html" class="pagination-link" aria-label="Die Varianzanalyse">
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Die Varianzanalyse</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->

@@ -9,6 +9,14 @@ book:
   chapters:
     - index.qmd
     - stats_basics.qmd
+    - stats_significance.qmd
+    - stats_estimation.qmd
+    - stats_ttest.qmd
+    - stats_anova.qmd
+    - stats_correlation.qmd
+    - stats_regression.qmd
+    - stats_nonparametric.qmd
+    - ethics.qmd
     - references.qmd
 
 bibliography: bibliography.bib
