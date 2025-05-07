@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.42">
+<meta name="generator" content="quarto-1.6.32">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>2&nbsp; Statistische Signifikanz, p-Wert und Power – Skriptum - Einführung in die Statistik</title>
+<title>2&nbsp; Statistische Signifikanz – Skriptum - Einführung in die Statistik</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -84,17 +84,17 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./stats_estimation.html" rel="next">
+<link href="./stats_errorprobability.html" rel="next">
 <link href="./stats_basics.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-2486e1f0a3ee9ee1fc393803a1361cdb.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-8da5b4427184b79ecddefad3d342027e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-f90a1b115807ea56b20e50efb3bb25e2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -180,7 +180,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./stats_significance.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Statistische Signifikanz, p-Wert und Power</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./stats_significance.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Statistische Signifikanz</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Suchen" onclick="window.quartoOpenSearch();">
@@ -220,49 +220,55 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./stats_significance.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Statistische Signifikanz, p-Wert und Power</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Statistische Signifikanz</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./stats_errorprobability.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Irrtumswahrscheinlichkeit</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./stats_estimation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Parameterschätzung</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Parameterschätzung</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./stats_ttest.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Der t-Test</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Der t-Test</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./stats_anova.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Die Varianzanalyse</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Die Varianzanalyse</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./stats_correlation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Die Korrelation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Die Korrelation</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./stats_regression.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Die Regression</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Die Regression</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./stats_nonparametric.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Nichtparametrische Tests</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Nichtparametrische Tests</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ethics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Ethik</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Ethik</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -298,10 +304,8 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#signifikanter-wert---das-kleingedruckte" id="toc-signifikanter-wert---das-kleingedruckte" class="nav-link" data-scroll-target="#signifikanter-wert---das-kleingedruckte"><span class="header-section-number">2.6.1</span> Signifikanter Wert - Das Kleingedruckte</a></li>
   </ul></li>
-  <li><a href="#was-passiert-wenn-eine-andere-hypothese-zutrifft" id="toc-was-passiert-wenn-eine-andere-hypothese-zutrifft" class="nav-link" data-scroll-target="#was-passiert-wenn-eine-andere-hypothese-zutrifft"><span class="header-section-number">2.7</span> Was passiert wenn eine “andere” Hypothese zutrifft?</a></li>
-  <li><a href="#wie-kann-die-power-erhöht-werden" id="toc-wie-kann-die-power-erhöht-werden" class="nav-link" data-scroll-target="#wie-kann-die-power-erhöht-werden"><span class="header-section-number">2.8</span> Wie kann die Power erhöht werden?</a></li>
-  <li><a href="#things-to-know" id="toc-things-to-know" class="nav-link" data-scroll-target="#things-to-know"><span class="header-section-number">2.9</span> Things to know</a></li>
-  <li><a href="#weitere-literatur" id="toc-weitere-literatur" class="nav-link" data-scroll-target="#weitere-literatur"><span class="header-section-number">2.10</span> Weitere Literatur</a></li>
+  <li><a href="#things-to-know" id="toc-things-to-know" class="nav-link" data-scroll-target="#things-to-know"><span class="header-section-number">2.7</span> Things to know</a></li>
+  <li><a href="#weitere-literatur" id="toc-weitere-literatur" class="nav-link" data-scroll-target="#weitere-literatur"><span class="header-section-number">2.8</span> Weitere Literatur</a></li>
   </ul>
 </nav>
     </div>
@@ -310,7 +314,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Statistische Signifikanz, p-Wert und Power</span></h1>
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Statistische Signifikanz</span></h1>
 </div>
 
 
@@ -626,17 +630,13 @@ Abbildung&nbsp;2.13: Die <span class="math inline">\(H_0\)</span> Verteilung wen
 </div>
 <p>Wenn der Stichprobenwert der Statistik in der <em>kritischen</em> Region auftritt, dann wird von einem <strong>statistisch signifikanten Ergebnis</strong> gesprochen: <em>Unter der <span class="math inline">\(H_0\)</span> bin ich überrascht, diesen Wert zu sehen!</em> Allerdings ist dieser Wert <strong>nicht unmöglich</strong>, sondern lediglich unwahrscheinlich, wenn die Annahme <span class="math inline">\(H_0\)</span> korrekt ist. Unwahrscheinlich ist dabei kein absolutes Maß, sondern nur eine <strong>willkürliche</strong> Festsetzung, die wir selbst getroffen haben.</p>
 <p>Vorhin wurde bereits erwähnt, dass Werte jenseits von <span class="math inline">\(2\times \sigma_e\)</span> etwa eine Wahrscheinlichkeit von <span class="math inline">\(5\%\)</span> unter der <span class="math inline">\(H_0\)</span> haben. Dies bedeutet, dass die Wahrscheinlichkeit, Werte im kritischen Bereich zu beobachten, bei etwa <span class="math inline">\(5\%\)</span> liegt, wenn die <span class="math inline">\(H_0\)</span> zutrifft. Oder anders: Wenn die <span class="math inline">\(H_0\)</span> in der Realität zutrifft, also den DGP korrekt beschreibt, und das Experiment <span class="math inline">\(100\)</span>-mal wiederholt wird, dann würde ich etwa <span class="math inline">\(5\)</span> Experimente erwarten, bei denen der beobachtete Wert im kritischen Bereich liegt. Anhand unserer Entscheidungsregel entscheide ich mich in diesen <span class="math inline">\(5\)</span> Fällen gegen die <span class="math inline">\(H_0\)</span>, obwohl diese zutrifft. Das heißt, in diesen <span class="math inline">\(5\)</span> Fällen würde ich mich irren. Eines der grundlegenden Probleme, das oftmals nicht beachtet wird bei der Interpretation von <strong>statistisch</strong> signifikanten Ergebnissen, bezieht sich darauf, dass ich nicht weiß, welches der <span class="math inline">\(100\)</span> Experimente ich gerade durchgeführt habe. Es ist durchaus möglich, dass ich <em>Pech</em> gehabt habe und ausgerechnet mein Experiment eines der fünf Experimente ist.</p>
-<div id="def-alpha-err" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 2.3 (Irrtumswahrscheinlichkeit <span class="math inline">\(\alpha\)</span> )</strong></span> Die Wahrscheinlichkeit, mit der fälschlicherweise eine korrekte <span class="math inline">\(H_0\)</span>-Hypothese abgelehnt wird, wird als Irrtumswahrscheinlichkeit bezeichnet. Die Irrtumswahrscheinlichkeit wird mit dem Symbol <span class="math inline">\(\alpha\)</span> bezeichnet und auch als Fehler I. Art bezeichnet.</p>
-</div>
-<p>Eine weitere Missinterpretation der Irrtumswahrscheinlichkeit ist, dass sie eine Aussage über die Wahrscheinlichkeit des Zutreffens der <span class="math inline">\(H_0\)</span> erlaubt. Die Irrtumswahrscheinlichkeit ermöglicht dies allerdings nicht. Ob die <span class="math inline">\(H_0\)</span> zutrifft, hat die Wahrscheinlichkeit entweder <span class="math inline">\(P(H_0) = 1\)</span> oder <span class="math inline">\(P(H_0) = 0\)</span>. Entweder sie trifft zu oder eben nicht. Darüber wird hier keine Aussage gemacht, sondern nur, ob unter der Annahme, dass <span class="math inline">\(H_0\)</span> zutrifft, der beobachtete Wert in einem <em>wahrscheinlichen</em> oder einem <em>unwahrscheinlichen</em> Bereich liegt. Nochmal, was <em>wahrscheinlich</em> ist, wurde durch eine willkürliche Festlegung bestimmt. Die gewählte Grenze ist keine physikalische Realität!</p>
-<p>Kommen wir nun zum nächsten oft missverstandenen Term, dem p-Wert.</p>
+<p>Kommen wir nun zum nächsten oft missverstandenen Konzept, dem p-Wert.</p>
 </section>
 <section id="der-p-wert" class="level2" data-number="2.6">
 <h2 data-number="2.6" class="anchored" data-anchor-id="der-p-wert"><span class="header-section-number">2.6</span> Der p-Wert</h2>
 <p>Fangen wir dieses Mal mit der Definition an. Da wir mittlerweile hoffentlich schon einiges an Intuition aufgebaut haben, sollte die Definition einigermaßen verständlich sein.</p>
 <div id="def-p-value" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 2.4 (p-Wert )</strong></span> Der p-Wert gibt die Wahrscheinlichkeit für den beobachteten oder einen noch extremeren Wert unter der <span class="math inline">\(H_0\)</span> an.</p>
+<p><span class="theorem-title"><strong>Definition 2.3 (p-Wert )</strong></span> Der p-Wert gibt die Wahrscheinlichkeit für den beobachteten oder einen noch extremeren Wert unter der <span class="math inline">\(H_0\)</span> an.</p>
 </div>
 <p>In <a href="#fig-stats-sig-p-value-01" class="quarto-xref">Abbildung&nbsp;<span>2.14</span></a> ist eine Verteilung unter der <span class="math inline">\(H_0\)</span> eingezeichnet, zusammen mit den kritischen Bereichen für ein gegebenes <span class="math inline">\(\alpha\)</span> und dem beobachteten Wert.</p>
 <div class="cell">
@@ -713,221 +713,8 @@ Abbildung&nbsp;2.16: Ausschnitt aus Altman et al.&nbsp;(1995)
 <p>Das gibt uns auch einen schönen Aufschlag für die nächste Etappe. Was passiert eigentlich, wenn die <em>andere</em> Hypothese, also nicht die <span class="math inline">\(H_0\)</span>, zutrifft?</p>
 </section>
 </section>
-<section id="was-passiert-wenn-eine-andere-hypothese-zutrifft" class="level2" data-number="2.7">
-<h2 data-number="2.7" class="anchored" data-anchor-id="was-passiert-wenn-eine-andere-hypothese-zutrifft"><span class="header-section-number">2.7</span> Was passiert wenn eine “andere” Hypothese zutrifft?</h2>
-<p>In <a href="#fig-stats-sig-power-01" class="quarto-xref">Abbildung&nbsp;<span>2.17</span></a> ist neben der uns schon bekannten Stichprobenverteilung unter der <span class="math inline">\(H_0\)</span> für unsere kleine Welt eine weitere Verteilung unter einer Alternativhypothese, die wir mit <span class="math inline">\(H_1\)</span> bezeichnen. Unter der <span class="math inline">\(H_1\)</span> ist der wahre Unterschied zwischen den beiden Verteilungen <span class="math inline">\(\Delta = 500N\)</span>.</p>
-<div class="cell">
-<div class="cell-output-display">
-<div id="fig-stats-sig-power-01" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-stats-sig-power-01-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="stats_significance_files/figure-html/fig-stats-sig-power-01-1.png" class="img-fluid figure-img" width="672">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-stats-sig-power-01-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Abbildung&nbsp;2.17: Differenzen mit kritischen Regionen (rot) mit einer Wahrscheinlichkeit von <span class="math inline">\(\alpha\)</span>, wenn <span class="math inline">\(H_0\)</span> zutrifft, und unter einer Alternativhypothese <span class="math inline">\(H_1: \Delta = 500N\)</span>.
-</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<p>In <a href="#fig-stats-sig-power-01" class="quarto-xref">Abbildung&nbsp;<span>2.17</span></a> ist zu sehen, dass sich die beiden Verteilungen überschneiden. Der kritische Bereich unter der <span class="math inline">\(H_0\)</span> fängt etwa bei <span class="math inline">\(500N\)</span> an, sodass der Bereich zwischen etwa <span class="math inline">\(100-400N\)</span> unter beiden Verteilungen wohl relativ <em>wahrscheinlich</em> ist. Das heißt, wenn wir einen Wert in diesem Bereich beobachten würden, könnten wir nicht wirklich trennscharf argumentieren, aus welcher Stichprobenverteilung der Wert tatsächlich stammt. In <a href="#fig-stats-sig-power-02" class="quarto-xref">Abbildung&nbsp;<span>2.18</span></a> haben wir den Bereich unter der <span class="math inline">\(H_1\)</span>, der links des kritischen Bereichs von <span class="math inline">\(H_0\)</span> liegt, grün eingefärbt. Da es sich hier wieder um eine Fläche handelt, bestimmt diese Fläche eine Wahrscheinlichkeit. Wie könnte diese Wahrscheinlichkeit verbal beschrieben werden?</p>
-<div class="cell">
-<div class="cell-output-display">
-<div id="fig-stats-sig-power-02" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-stats-sig-power-02-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="stats_significance_files/figure-html/fig-stats-sig-power-02-1.png" class="img-fluid figure-img" width="672">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-stats-sig-power-02-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Abbildung&nbsp;2.18: Differenzen mit kritischen Regionen (rot) mit einer Wahrscheinlichkeit von <span class="math inline">\(\alpha\)</span>, wenn <span class="math inline">\(H_0\)</span> zutrifft, und <span class="math inline">\(\beta\)</span> (grün), wenn <span class="math inline">\(H_1\)</span> zutrifft.
-</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<p>Die Werte zwischen den beiden kritischen Bereichen beschreiben diejenigen Werte, bei denen wir die <span class="math inline">\(H_0\)</span> beibehalten würden, da wir diese Werte nicht als <em>überraschend</em> unter der <span class="math inline">\(H_0\)</span> einschätzen. Dementsprechend würden wir uns irren, wenn in der Realität allerdings die <span class="math inline">\(H_1\)</span>-Hypothese zutreffen würde. Daher beschreibt die grüne Fläche in <a href="#fig-stats-sig-power-02" class="quarto-xref">Abbildung&nbsp;<span>2.18</span></a> ebenfalls die Wahrscheinlichkeit, sich zu irren – aber dieses Mal, wenn die Alternativhypothese <span class="math inline">\(H_1\)</span> zutrifft. Diese Irrtumswahrscheinlichkeit bezeichnet man als <span class="math inline">\(\beta\)</span>-Wahrscheinlichkeit.</p>
-<div id="def-beta-error" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 2.5 (<span class="math inline">\(\beta\)</span>-Wahrscheinlichkeit)</strong></span> Die <span class="math inline">\(\beta\)</span>-Wahrscheinlichkeit beschreibt die Wahrscheinlichkeit, sich gegen die Alternativhypothese <span class="math inline">\(H_1\)</span> zu entscheiden, wenn diese zutrifft. Die <span class="math inline">\(\beta\)</span>-Wahrscheinlichkeit wird auch als Fehler II. Art bezeichnet.</p>
-</div>
-<p>Wenn wir jetzt das Komplement der grünen Fläche nehmen, dann erhalten wir wiederum eine Wahrscheinlichkeit. In <a href="#fig-stats-sig-power-03" class="quarto-xref">Abbildung&nbsp;<span>2.19</span></a> ist diese Fläche blau eingezeichnet.</p>
-<div class="cell">
-<div class="cell-output-display">
-<div id="fig-stats-sig-power-03" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-stats-sig-power-03-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="stats_significance_files/figure-html/fig-stats-sig-power-03-1.png" class="img-fluid figure-img" width="672">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-stats-sig-power-03-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Abbildung&nbsp;2.19: <span class="math inline">\(1-\beta\)</span> = Power des Tests (blaue Fläche).
-</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<p>Diese Fläche beschreibt die Wahrscheinlichkeit, sich für die Alternativhypothese <span class="math inline">\(H_1\)</span> zu entscheiden, wenn diese auch tatsächlich zutrifft, und wird als die Power bezeichnet.</p>
-<div id="def-power" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 2.6 (Power )</strong></span> Die Power bezeichnet die Wahrscheinlichkeit, sich für die Alternativhypothese <span class="math inline">\(H_1\)</span> zu entscheiden, wenn diese in der Realität zutrifft.</p>
-</div>
-<p>Nochmal zu <a href="#fig-stats-sig-power-03" class="quarto-xref">Abbildung&nbsp;<span>2.19</span></a>: Die Werte unter der blauen Fläche werden mit einer Wahrscheinlichkeit beobachtet, die derjenigen der blauen Fläche entspricht. Jedes Mal, wenn so ein Wert eintritt, liegt dieser im kritischen Bereich unter der <span class="math inline">\(H_0\)</span> (rote Fläche) und wir entscheiden uns gegen die <span class="math inline">\(H_0\)</span>.</p>
-<p>Zusammengefasst haben wir die folgende Liste bezüglich der Terme <span class="math inline">\(\alpha\)</span>, <span class="math inline">\(\beta\)</span> und Power: - <span class="math inline">\(\alpha\)</span>: Die Wahrscheinlichkeit, sich gegen die <span class="math inline">\(H_0\)</span> zu entscheiden, wenn die <span class="math inline">\(H_0\)</span> zutrifft. Das <span class="math inline">\(\alpha\)</span>-Level wird vor dem Experiment festgelegt, um zu kontrollieren, welche Fehlerrate toleriert wird. - <span class="math inline">\(\beta\)</span>: Die Wahrscheinlichkeit, sich gegen die <span class="math inline">\(H_1\)</span> zu entscheiden, wenn die <span class="math inline">\(H_1\)</span> zutrifft. - Power := <span class="math inline">\(1 - \beta\)</span>: Die Wahrscheinlichkeit, sich für die <span class="math inline">\(H_1\)</span> zu entscheiden, wenn die <span class="math inline">\(H_1\)</span> zutrifft. Sollte ebenfalls <strong>vor</strong> dem Experiment festgelegt werden.</p>
-<p>Die verschiedenen Entscheidungsmöglichkeiten haben wir schon einmal zusammengefasst (siehe <a href="#tbl-stats-sig-power" class="quarto-xref">Tabelle&nbsp;<span>2.1</span></a>).</p>
-<div id="tbl-stats-sig-power" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-stats-sig-power-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabelle&nbsp;2.1: Entscheidungsmöglichkeiten und Fehlerarten
-</figcaption>
-<div aria-describedby="tbl-stats-sig-power-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Entscheidung\Realität</th>
-<th><span class="math inline">\(H_0\)</span></th>
-<th><span class="math inline">\(H_1\)</span></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span class="math inline">\(H_0\)</span></td>
-<td>korrekt</td>
-<td><span class="math inline">\(\beta\)</span></td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(H_1\)</span></td>
-<td><span class="math inline">\(\alpha\)</span></td>
-<td>korrekt</td>
-</tr>
-</tbody>
-</table>
-</div>
-</figure>
-</div>
-</section>
-<section id="wie-kann-die-power-erhöht-werden" class="level2" data-number="2.8">
-<h2 data-number="2.8" class="anchored" data-anchor-id="wie-kann-die-power-erhöht-werden"><span class="header-section-number">2.8</span> Wie kann die Power erhöht werden?</h2>
-<p>Die Frage, die sich nun stellt, ist: Wie kann wir die Power erhöht werden? In <a href="#fig-stats-sig-power-04" class="quarto-xref">Abbildung&nbsp;<span>2.20</span></a> haben sind nochmals die beiden Verteilungen bei <span class="math inline">\(\Delta = 500\)</span> und <span class="math inline">\(\Delta = 0\)</span> abgetragen.</p>
-<div class="cell">
-<div class="cell-output-display">
-<div id="fig-stats-sig-power-04" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-stats-sig-power-04-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="stats_significance_files/figure-html/fig-stats-sig-power-04-1.png" class="img-fluid figure-img" width="672">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-stats-sig-power-04-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Abbildung&nbsp;2.20: Verteilungen wenn <span class="math inline">\(\Delta\)</span>=500 und <span class="math inline">\(\Delta\)</span>=0 in unserem kleine Welt Beispiel mit n = 3.
-</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<p>Eine Entscheidung ist speziell problematisch im Bereich zwischen <span class="math inline">\(0\)</span> und <span class="math inline">\(500\)</span>. Hier überlappen die beiden Verteilungen, und es entstehen dementsprechend Schwierigkeiten, einen beobachteten Wert in diesem Bereich eindeutig einer der beiden Hypothesen zuzuordnen. Die Power kann daher erhöht werden, indem die Überlappung der beiden Verteilungen verkleinert wird. Dazu sind zwei Möglichkeiten vorhanden: Entweder der Unterschied zwischen den beiden <span class="math inline">\(\Delta\)</span>s wird vergrößert (d.h., das Krafttraining müsste effizienter werden) oder die beiden Verteilungen werden schmaler gemacht, indem die Streuung der Werte verkleinert wird.</p>
-<p>In <a href="#fig-stats-sig-power-05" class="quarto-xref">Abbildung&nbsp;<span>2.21</span></a> sind alle Parameter gleich geblieben wie in <a href="#fig-stats-sig-power-04" class="quarto-xref">Abbildung&nbsp;<span>2.20</span></a>, aber die Stichprobengröße wurde von <span class="math inline">\(n = 3\)</span> auf <span class="math inline">\(n = 9\)</span> erhöht.</p>
-<div class="cell">
-<div class="cell-output-display">
-<div id="fig-stats-sig-power-05" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-stats-sig-power-05-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="stats_significance_files/figure-html/fig-stats-sig-power-05-1.png" class="img-fluid figure-img" width="672">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-stats-sig-power-05-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Abbildung&nbsp;2.21: Stichprobenverteilungen der Differenz unter <span class="math inline">\(H_0\)</span> und <span class="math inline">\(H_1:\delta=500\)</span>N bei einer Stichprobengröße von n = 9
-</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<p>Es ist zu beobachten, dass die Position der Verteilungen gleich geblieben ist. Dies sollte nicht weiter verwundern, da immer noch die beiden Hypothesen <span class="math inline">\(H_0: \Delta = 0\)</span>N und <span class="math inline">\(H_1: \Delta = 500\)</span>N miteinander verglichen werden. Aber durch die Erhöhung der Stichprobengröße ist die Streuung der <span class="math inline">\(D\)</span>s unter beiden Hypothesen kleiner geworden. Dies führt dazu, dass die Verteilungen nun steiler sind und dementsprechend weniger stark überlappen. Die Streuung der Statistik wird, wie schon oben erwähnt, als Standardfehler <span class="math inline">\(s_e\)</span> bezeichnet und beschreibt die Standardabweichung der Statistik. Der Standardfehler ist <strong>nicht</strong> gleich der Standardabweichung in der Population bzw. der Stichprobe (siehe <a href="#fig-stats-sig-standard-error-deriv" class="quarto-xref">Abbildung&nbsp;<span>2.22</span></a>).</p>
-<div class="cell">
-<div class="cell-output-display">
-<div id="fig-stats-sig-standard-error-deriv" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-stats-sig-standard-error-deriv-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="stats_significance_files/figure-html/fig-stats-sig-standard-error-deriv-1.png" class="img-fluid figure-img" width="672">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-stats-sig-standard-error-deriv-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Abbildung&nbsp;2.22: Zusammenhang zwischen den Parametern der Population, der Stichprobe und dem Standardfehler
-</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<p>Warum führt die Erhöhung der Stichprobengröße dazu, dass die Verteilungen steiler werden? Die Statistik die in diesen Fällen betrachtet wurde war der Unterschied <span class="math inline">\(d\)</span> zwischen den Gruppen. Durch die Erhöhung der Stichprobe kommt es nun dazu, dass dieser Unterschied <span class="math inline">\(d\)</span> weniger stark schwankt, denn dadurch, dass mehr Probandinnen betrachtet werden, ist die Chance das zwei extreme Mittelwerte in den beiden Gruppen auftachen kleiner. Die Vergrößerung der Stichprobe führt dazu, dass extreme Werte eher <em>rausgemittelt</em> werden. Dies führt dann dazu, dass wenn die Mittelwerte weniger schwanken auch die Unterschiede zwischen den beiden Mittelwerten weniger schwanken. In der Folge ist die Standardabweichung der Differenzen <span class="math inline">\(d\)</span>, der Standardfehler kleiner und die beiden Verteilungen unter der <span class="math inline">\(H_0\)</span> und der <span class="math inline">\(H_1\)</span> respektive werden steiler.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Hinweis
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Für den Standardfehler des Mittelwerts, also wenn die Statistik der Mittlwert ist, dann gilt der folgende Zusammenhang:</p>
-<div id="tbl-stats-sig-standard-error" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-stats-sig-standard-error-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabelle&nbsp;2.2: Standardfehler des Mittelwerts, n = Stichprobengröße
-</figcaption>
-<div aria-describedby="tbl-stats-sig-standard-error-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<table class="caption-top table">
-<colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Population</th>
-<th>Stichprobe</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span class="math inline">\(\sigma_{\bar{X}}=\sqrt{\frac{\sigma^2}{n}} = \frac{\sigma}{\sqrt{n}}\)</span></td>
-<td><span class="math inline">\(s_e=\sqrt{\frac{s^2}{n}}=\frac{s}{\sqrt{n}}\)</span></td>
-</tr>
-</tbody>
-</table>
-</div>
-</figure>
-</div>
-<p>In <a href="#tbl-stats-sig-standard-error" class="quarto-xref">Tabelle&nbsp;<span>2.2</span></a> ist zu sehen, dass ein wurzelförmiger Zusammenhang zwischen dem Standardfehler <span class="math inline">\(s_e\)</span> und der Stichprobengröße besteht. Dieser Zusammenhang wird uns in verschiedenen Berechnungen zum Standardfehler verschiedener Statistiken immer wieder begegnen.</p>
-</div>
-</div>
-<div id="exm-se-average" class="theorem example">
-<p><span class="theorem-title"><strong>Beispiel 2.1 (Standardfehler des Mittelwerts)</strong></span> Die Gleichheit des Standardfehler des Mittelwerts mit der Standardabweichung der Stichprobenverteilung der Mittelwerte ist im folgenden Beispiel einfach zu nachzuvollziehen. Dazu werden <span class="math inline">\(1000\)</span> Stichproben der Größe <span class="math inline">\(N = 10\)</span> aus einer Normalverteilung mit <span class="math inline">\(\mu = 0\)</span> und <span class="math inline">\(sigma=2\)</span> gezogen und für jede Stichprobe wird der Mittelwert berechnet. Der theoretische Standardfehler ist:</p>
-<p><span class="math display">\[\begin{equation*}
-s_e = \frac{\sigma}{\sqrt{n}} = \frac{2}{\sqrt{10}} \approx 0.63
-\end{equation*}\]</span></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>n_sim <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>N <span class="ot">&lt;-</span> <span class="dv">10</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>mu <span class="ot">&lt;-</span> <span class="dv">0</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>sigma <span class="ot">&lt;-</span> <span class="dv">2</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>x_bars <span class="ot">&lt;-</span> <span class="fu">replicate</span>(n_sim, <span class="fu">mean</span>(<span class="fu">rnorm</span>(N, <span class="at">mean=</span>mu, <span class="at">sd=</span>sigma)))</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(x_bars)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.6262897</code></pre>
-</div>
-</div>
-<p>Es ist zu beobachten, dass der empirische Standardfehler, im Rahmen der Stichprobenvariabilität, den theoretischen Wert tatsächlich sehr gut approximiert. Bei mehr Simulationsdurchgängen wird entsprechend der Unterschied immer kleiner.</p>
-</div>
-<div class="cell">
-<div class="cell-output-display">
-<div id="fig-stats-sig-sqrtfcn" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-stats-sig-sqrtfcn-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="stats_significance_files/figure-html/fig-stats-sig-sqrtfcn-1.png" class="img-fluid figure-img" width="672">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-stats-sig-sqrtfcn-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Abbildung&nbsp;2.23: Funktionaler Zusammenhang zwischen <span class="math inline">\(x\)</span> und <span class="math inline">\(\sqrt{x}\)</span>.
-</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<p>In <a href="#fig-stats-sig-sqrtfcn" class="quarto-xref">Abbildung&nbsp;<span>2.23</span></a> ist zur Erinnerung aus der Schule die Funktion <span class="math inline">\(y = \sqrt{x}\)</span> abgetragen. Daran sehen wir, dass die Funktionswerte für kleine Werte von <span class="math inline">\(x\)</span> steil ansteigen und später dann anfangen, immer langsamer größer zu werden. Angewendet auf unsere Power-Frage: Wenn der Standardfehler mit der Wurzel der Stichprobengröße <span class="math inline">\(n\)</span> kleiner wird, dann ist dies besonders bei kleinen Stichprobengrößen von Bedeutung, also zum Beispiel der Unterschied zwischen <span class="math inline">\(n = 10\)</span> und <span class="math inline">\(n = 20\)</span>. Der gleiche Stichprobenunterschied dagegen zwischen <span class="math inline">\(n = 110\)</span> und <span class="math inline">\(n = 120\)</span> fällt nicht mehr ganz so stark ins Gewicht. Das heißt, bei kleinen Stichproben sollte um jede zusätzliche Teilnehmerin bzw. jeden zusätzlichen Teilnehmer gekämpft werden. Allgemein gilt: Je größer die Stichprobengröße, desto größer die Power.</p>
-</section>
-<section id="things-to-know" class="level2" data-number="2.9">
-<h2 data-number="2.9" class="anchored" data-anchor-id="things-to-know"><span class="header-section-number">2.9</span> Things to know</h2>
+<section id="things-to-know" class="level2" data-number="2.7">
+<h2 data-number="2.7" class="anchored" data-anchor-id="things-to-know"><span class="header-section-number">2.7</span> Things to know</h2>
 <ul>
 <li>Datengenerierender Prozess</li>
 <li>Lage- und Skalenparameter</li>
@@ -936,15 +723,10 @@ Abbildung&nbsp;2.23: Funktionaler Zusammenhang zwischen <span class="math inline
 <li>Schätzer</li>
 <li>p-Wert</li>
 <li>Referenzverteilung</li>
-<li><span class="math inline">\(H_0\)</span> und <span class="math inline">\(H_1\)</span></li>
-<li><span class="math inline">\(\alpha\)</span>-Fehler</li>
-<li><span class="math inline">\(\beta\)</span>-Fehler</li>
-<li>Power</li>
-<li>Standardfehler</li>
 </ul>
 </section>
-<section id="weitere-literatur" class="level2" data-number="2.10">
-<h2 data-number="2.10" class="anchored" data-anchor-id="weitere-literatur"><span class="header-section-number">2.10</span> Weitere Literatur</h2>
+<section id="weitere-literatur" class="level2" data-number="2.8">
+<h2 data-number="2.8" class="anchored" data-anchor-id="weitere-literatur"><span class="header-section-number">2.8</span> Weitere Literatur</h2>
 <p>Ein interessanter Artikel, der die Auswirkungen beleuchtet, wenn Studien zu wenig Power haben: <span class="citation" data-cites="button2013">Button u.&nbsp;a. (<a href="references.html#ref-button2013" role="doc-biblioref">2013</a>)</span>. In <span class="citation" data-cites="djulbegovic2007">Djulbegovic und Hozo (<a href="references.html#ref-djulbegovic2007" role="doc-biblioref">2007</a>)</span> findet sich eine interessante Diskussion darüber, unter welchen Bedingungen statistisch signifikante Ergebnisse als wahr angesehen werden sollten. In <span class="citation" data-cites="borg2023">Borg u.&nbsp;a. (<a href="references.html#ref-borg2023" role="doc-biblioref">2023</a>)</span> ist eine Untersuchung zu der unerwartet hohen Anzahl von statistisch signifikanten Ergebnissen in der sportwissenschaftlichen Literatur dokumentiert (siehe auch <span class="citation" data-cites="haeffel2022">Haeffel (<a href="references.html#ref-haeffel2022" role="doc-biblioref">2022</a>)</span>). In <span class="citation" data-cites="sandercock2024">Sandercock (<a href="references.html#ref-sandercock2024" role="doc-biblioref">2024</a>)</span> wird ein Beispiel dokumentiert, das zeigt, wie häufig der Standardfehler mit der Standardabweichung verwechselt wird (siehe auch <span class="citation" data-cites="kadlec2022">Kadlec, Sainani, und Nimphius (<a href="references.html#ref-kadlec2022" role="doc-biblioref">2022</a>)</span>).</p>
 
 
@@ -1062,6 +844,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -1172,6 +956,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
+      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {
@@ -1404,8 +1189,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./stats_estimation.html" class="pagination-link" aria-label="Parameterschätzung">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Parameterschätzung</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./stats_errorprobability.html" class="pagination-link" aria-label="Irrtumswahrscheinlichkeit">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Irrtumswahrscheinlichkeit</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

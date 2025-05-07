@@ -109,30 +109,49 @@ Eine Stichprobe\index{Stichprobe} ist eine Teilmenge der Objekte aus der Populat
 Eine Zufallsstichprobe\index{Zufallsstichprobe} ist eine Teilmenge der Objekte aus der Population, die *zufällig* ausgewählt wurde.
 :::
 
-Bei der Zufallsstichprobe haben alle Personen in der Population vor dem Experiment die gleiche Wahrscheinlichkeit, gezogen zu werden. Dadurch kann sichergestellt werden, dass in der Stichprobe unterliegende Störvariablen, ob messbar oder nicht messbar, ebenso in der Stichprobe verteilt sind.
+Bei einer Zufallsstichprobe haben alle Personen bzw. Objekte in der Population vor dem Experiment die gleiche Wahrscheinlichkeit, gezogen zu werden. Dadurch kann sichergestellt werden, dass in der Stichprobe unterliegende Störvariablen, ob messbar oder nicht messbar, ebenso in der Stichprobe verteilt sind.
 
-::: {exm-random-sample}
+::: {#exm-random-sample}
+## Zufallstichprobe
 
-Schauen wir uns ein einfaches Beispiel an. Sei eine Population der Größe $N = 100$ gegeben, in der $30$ Objekte das Merkmal A haben und $70$ Objekte das Merkmal B. Es werden nun wiederholt Zufallsstichproben der Größe 20 aus dieser Population gezogen und für jede Stichprobe wird der Anteil der As berechnet.
+Schauen wir uns ein einfaches Beispiel an. Sei eine Population der Größe $N = 100$ gegeben, in der $30$ Personen das Merkmal A haben und $70$ Personen das Merkmal B (siehe @fig-stats-basics-merkmal).
 
 ```{r}
+#| fig-height: 1
+#| fig-cap: "Verteilung der Merkmale A und B in einer Population"
+#| label: fig-stats-basics-merkmal
+
 set.seed(25)
+pop <- rep(c("A","B"), c(30,70))
+df_pop <- tibble(x = 1:100, merkmal=pop[sample(100,100)])
+ggplot(df_pop, aes(x, y=1, color=merkmal)) +
+  geom_point() +
+  scale_x_continuous("Personen", breaks=NULL, limits=c(0,101)) +
+  scale_y_continuous("", breaks=NULL) +
+  scale_color_discrete("Merkmal")
 ```
 
-```{r}
-#| echo: true
+Mit Hilfe des Rechners werden nun wiederholt insgesamt $30$ Zufallsstichproben der Größe $N = 20$ aus dieser Population gezogen und für jede Stichprobe wird der Anteil der Personen mit dem Merkmal A ermittel.
 
-pop <- rep(c("A","B"), c(30,70))
-n_sam <- 20
+```{r}
+#| fig-height: 1
+#| fig-cap: "Anteil der Merkmale A in den Stichproben."
+#| label: fig-stats-basics-merkmal-2
+
+n_sam <- 30
+n_s <- 20
 res <- numeric(n_sam)
 for (i in 1:n_sam) {
-  sam <- sample(pop, 20)
+  sam <- sample(pop, n_s)
   res[i] <- mean(sam == 'A')
 }
-res
+ggplot(tibble(res), aes(x=res, y=1)) + 
+  geom_jitter(height = 0, alpha=.5) +
+  scale_x_continuous("Anteil Merkmal A", limits=c(0, 1)) +
+  scale_y_continuous("", breaks=NULL)
 ```
 
-Wir sehen, dass tatsächlich in den meisten Fällen der Anteil von As in der Stichprobe in der Nähe der $30\%$ aus der Population liegt. Nicht in allen Fällen, es gibt Schwankungen um diesen Wert herum, aber im Großen und Ganzen spiegelt die Stichprobe in Bezug auf die Verteilung von Merkmalen A und B die Population gut wider. Das heißt, es handelt sich um eine *repräsentative* Stichprobe.
+Wir sehen in @fig-stats-basics-merkmal-2, dass tatsächlich in den meisten Fällen der Anteil von As in der Stichprobe in der Nähe der $30\%$ aus der Population liegt. Nicht in allen Fällen, es gibt Schwankungen um diesen Wert herum, aber im Großen und Ganzen spiegelt die Stichprobe in Bezug auf die Verteilung von Merkmalen A und B die Population gut wider. Das heißt, es handelt sich um eine *repräsentative* Stichprobe.
 :::
 
 Nachdem jetzt geklärt ist, wie die Stichprobe aus der Population ermittelt wird, ist nun die nächste Frage, wie die Objekte aus der Stichprobe auf die beiden Gruppen verteilt werden. Die gleichen Überlegungen wie diejenigen zur Ermittlung der Stichprobe führen dazu, dass die Objekte zufällig in die beiden Gruppen verteilt werden müssen. In diesem Fall der Aufteilung wird allerdings von einer sogenannten Randomisierung gesprochen.

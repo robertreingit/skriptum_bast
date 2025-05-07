@@ -1,0 +1,361 @@
+# Irrtumswahrscheinlichkeit
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+source('_common.R')
+```
+
+```{r stats_significance_defs}
+n <- 20
+set.seed(123)
+world <- tibble(ID = paste0('P',stringr::str_pad(1:n, width=2, pad="0")),
+                Kraft = sample(2000:2500, n))
+world$Kraft[13] <- 1800
+world$Kraft[17] <- 3200
+d_gr <- 100
+d_x <- 2 
+mu_lummer <- 0
+sd_lummer <- 230
+```
+
+## Was passiert wenn eine "andere" Hypothese zutrifft? 
+
+In @fig-stats-sig-power-01 ist neben der uns schon bekannten Stichprobenverteilung unter der $H_0$ für unsere kleine Welt eine weitere Verteilung unter einer Alternativhypothese, die wir mit $H_1$ bezeichnen. Unter der $H_1$ ist der wahre Unterschied zwischen den beiden Verteilungen $\Delta = 500N$.
+
+```{r}
+#| fig-cap: "Differenzen mit kritischen Regionen (rot) mit einer Wahrscheinlichkeit von $\\alpha$, wenn $H_0$ zutrifft, und unter einer Alternativhypothese $H_1: \\Delta = 500N$."
+#| label: fig-stats-sig-power-01
+
+differences <- readr::read_csv('data/combinations_differences.csv')
+n_sim <- dim(differences)[1]
+sigma <- sd(differences$d)
+xx <- -750:1250
+n_pts <- length(xx)
+q_crit <- qnorm(0.975, 0, sd = sigma)
+dat_power <- tibble(
+  x = rep(xx,2),
+  y = c(dnorm(xx,0,sigma), dnorm(xx,500,sigma)),
+  hypo = rep(c("H0","H500"), c(n_pts, n_pts))
+)
+low <- tibble(x = seq(-750,-q_crit), y = dnorm(x, 0, sigma), hypo='H50')
+up <- tibble(x = seq(q_crit, 750), y = dnorm(x, 0, sigma), hypo='H50')
+ggplot(dat_power, aes(x,y,fill=hypo,ymin=0,ymax=y)) +
+  geom_ribbon(alpha=.5) +
+  geom_area(data = up, fill='red', alpha=0.8) +
+  geom_area(data = low, fill='red', alpha=.8) +
+  geom_line() +
+  scale_fill_discrete('Hypothese') +
+  labs(x = 'Differenzen[N]', y = 'relative Häufigkeit') 
+```
+
+In @fig-stats-sig-power-01 ist zu sehen, dass sich die beiden Verteilungen überschneiden. Der kritische Bereich unter der $H_0$ fängt etwa bei $500N$ an, sodass der Bereich zwischen etwa $100-400N$ unter beiden Verteilungen wohl relativ *wahrscheinlich* ist. Das heißt, wenn wir einen Wert in diesem Bereich beobachten würden, könnten wir nicht wirklich trennscharf argumentieren, aus welcher Stichprobenverteilung der Wert tatsächlich stammt. D.h. wir können uns irren, und fälschlicherweise beispielsweise die $H_0$ ablehnen bzw. beibehalten, je nachdem welche der beiden Verteilungen den beobachteten Wert generiert hat. Die möglichen Entscheidungen lassen sich wie folgt klassifizieren (siehe @tbl-stats-sig-power):
+
+| Entscheidung\\Realität | $H_0$ | $H_1$ |
+| --- | --- | --- |
+| $H_0$ | korrekt | $\beta$ |
+| $H_1$ | $\alpha$ | korrekt |
+
+: Entscheidungsmöglichkeiten und Fehlerarten  {#tbl-stats-sig-power}
+
+In den Zeilen stehen links die Entscheidungen, für welche der Hypothesen, entweder $H_0$ oder $H_1$ wir uns entscheiden. In den Spalten steht oben, welche der beiden Hypothesen in der Realität zutrifft. Ebenfalls entweder die $H_0$ oder die $H_1$. Dementsprechend, wenn die $H_0$ in der Realität zutrifft und wir uns für die $H_0$ entscheiden, dann haben wir uns korrekt entschieden. Ebenso, wenn die $H_1$ zutrifft und wir uns für die $H_1$ entscheiden. Wenn wir allerdings uns für die $H_1$ entscheiden, also die $H_0$ ablehnen, während in Wirklichkiet die $H_0$ zutrifft, dann begehen wir einen Fehler. Dieser Fehler wird als $\alpha$-Fehler oder auch als Fehler $1.$-Art bezeichnet. Entscheiden wir uns dagegen dafür die $H_0$ beizubehalten, während in Wirklichkeit die $H_1$ zutrifft begehen wir ebenfalls einen Fehler. Dieser Fehler wird nun als $\beta$-Fehler bzw. Fehler $2.$-Art bezeichnet. somit ergeben sich die folgenden Definitionen:
+
+::: {#def-alpha-err}
+## Irrtumswahrscheinlichkeit $\alpha$ \index{Irrtumswahrscheinlichkeit}
+
+Die Wahrscheinlichkeit, mit der fälschlicherweise eine korrekte $H_0$-Hypothese abgelehnt wird, wird als Irrtumswahrscheinlichkeit bezeichnet. Die Irrtumswahrscheinlichkeit wird mit dem Symbol $\alpha$ bezeichnet und auch als Fehler I. Art bezeichnet.
+:::
+
+::: {#def-beta-error}
+## $\beta$-Wahrscheinlichkeit
+
+Die $\beta$-Wahrscheinlichkeit \index{$\beta$-Wahrscheinlichkeit} beschreibt die Wahrscheinlichkeit, sich gegen die Alternativhypothese $H_1$ zu entscheiden, wenn diese zutrifft. Die $\beta$-Wahrscheinlichkeit wird auch als Fehler II. Art bezeichnet.
+:::
+
+Die Wahrscheinlichkeit mit der wir einen $\alpha$-Fehler begehen, ist dabei genau das $\alpha$-Niveau, das vorher festgelegt werden muss. Üblicherweise ist dies ebenfalls bei $5\%$ bzw. $0.05$. Unter der $H_0$ treten genau in $\alpha$-Niveau $\%$ der Fälle ein Wert in den roten  Flächen auf. Wenn unter der $H_0$ ein Experiment $100$-mal durchgeführt wird, dann würden wir in etwa fünf Fällen davon ausgehen einen Wert in den kritischen Bereichen zu beobachten, trotzdem die $H_0$ zutrifft. D.h. wir würden die $H_0$ ablehnen und uns *irren*.
+
+## Die Power
+
+In @fig-stats-sig-power-02a ist nun die Fläche unter der $H_1$ in kritischen Bereich *unter der* $H_0$ blau eingefärbt. Um welche Wahrscheinlichkeit handelt es sich hier?
+
+```{r}
+#| fig.cap: "$1-\\beta$ = Power des Tests (blaue Fläche)."
+#| label: fig-stats-sig-power-02a
+
+beta <- tibble(
+  x = -300:q_crit,
+  y = dnorm(x, 500, sigma)
+)
+power <- tibble(
+  x = q_crit:max(dat_power$x),
+  y = dnorm(x, 500, sigma)
+)
+ggplot(dat_power, aes(x,y,fill=hypo,ymin=0,ymax=y)) +
+  geom_ribbon(alpha=.5) +
+  geom_area(data = up, fill='red', alpha=0.8) +
+  geom_area(data = low, fill='red', alpha=.8) +
+  geom_area(data = power, fill='blue', alpha=0.5) +
+  geom_line() +
+  scale_fill_discrete('Hypothese') +
+  labs(x = 'Differenzen[N]', y = 'relative Häufigkeit') 
+```
+
+Unter der Annahme der $H_1$ beschreibt diese Fläche die Wahrscheinlichkeit einen Wert unter der blauen Fläche zu beobachten der zu einer **Ablehnung** der $H_0$ führt. D.h., da laut Annahme, die $H_1$ zutrifft würde durch eine Ablehnung der $H_0$ kein Fehler begangen werden. Anders herum, ist in @fig-stats-sig-power-02 der Bereich unter der $H_1$, der links des kritischen Bereichs von $H_0$ liegt, grün eingefärbt. Da es sich hier wieder um eine Fläche handelt, bestimmt diese Fläche ebenfalls eine Wahrscheinlichkeit. Wie könnte diese Wahrscheinlichkeit verbal beschrieben werden?
+
+```{r}
+#| fig-cap: "Differenzen mit kritischen Regionen (rot) mit einer Wahrscheinlichkeit von $\\alpha$, wenn $H_0$ zutrifft, und $\\beta$ (grün), wenn $H_1$ zutrifft."
+#| label: fig-stats-sig-power-02
+
+beta <- tibble(
+  x = -300:q_crit,
+  y = dnorm(x, 500, sigma)
+)
+ggplot(dat_power, aes(x,y,fill=hypo,ymin=0,ymax=y)) +
+  geom_ribbon(alpha=.5) +
+  geom_area(data = up, fill='red', alpha=0.8) +
+  geom_area(data = low, fill='red', alpha=.8) +
+  geom_area(data = beta, fill='green', alpha=0.5) +
+  geom_line() +
+  scale_fill_discrete('Hypothese') +
+  labs(x = 'Differenzen[N]', y = 'relative Häufigkeit') 
+```
+
+Die Werte zwischen den beiden kritischen Bereichen beschreiben diejenigen Werte, bei denen wir die $H_0$ beibehalten. Dementsprechend, unter der Annahme, dass die $H_1$ zutrifft, würden wir uns irren. Daher beschreibt diese grüne Fläche in @fig-stats-sig-power-02 ebenfalls eine Irrtumswahrscheinlichkeit. Dieses Mal allerdings, wenn die Alternativhypothese $H_1$ zutrifft. Diese Fläche beschreibt daher die $\beta$-Wahrscheinlichkeit. Die blaue Fläche stellt dabei genau das Komplement der grünen Fläche dar (siehe @fig-stats-sig-power-03).
+
+```{r}
+#| fig.cap: "$1-\\beta$ = Power des Tests (blaue Fläche)."
+#| label: fig-stats-sig-power-03
+
+beta <- tibble(
+  x = -300:q_crit,
+  y = dnorm(x, 500, sigma)
+)
+power <- tibble(
+  x = q_crit:max(dat_power$x),
+  y = dnorm(x, 500, sigma)
+)
+ggplot(dat_power, aes(x,y,fill=hypo,ymin=0,ymax=y)) +
+  geom_ribbon(alpha=.5) +
+  geom_area(data = up, fill='red', alpha=0.8) +
+  geom_area(data = low, fill='red', alpha=.8) +
+  geom_area(data = beta, fill='green', alpha=0.5) +
+  geom_area(data = power, fill='blue', alpha=0.5) +
+  geom_line() +
+  scale_fill_discrete('Hypothese') +
+  labs(x = 'Differenzen[N]', y = 'relative Häufigkeit') 
+```
+
+Diese Fläche beschreibt die Wahrscheinlichkeit, sich für die Alternativhypothese $H_1$ zu entscheiden, wenn diese auch tatsächlich zutrifft, und wird als die Power bezeichnet.
+
+::: {#def-power}
+## Power \index{Power}
+
+Die Power bezeichnet die Wahrscheinlichkeit, sich für die Alternativhypothese $H_1$ zu entscheiden, wenn diese in der Realität zutrifft.
+:::
+
+Nochmal zu @fig-stats-sig-power-03: Die Werte unter der blauen Fläche werden mit einer Wahrscheinlichkeit beobachtet, die derjenigen der blauen Fläche entspricht. Jedes Mal, wenn so ein Wert eintritt, liegt dieser im kritischen Bereich unter der $H_0$ (rote Fläche) und wir entscheiden uns gegen die $H_0$.
+
+Zusammengefasst haben wir die folgende Liste bezüglich der Terme $\alpha$, $\beta$ und Power:
+
+- $\alpha$: Die Wahrscheinlichkeit, sich gegen die $H_0$ zu entscheiden, wenn die $H_0$ zutrifft. Das $\alpha$-Level wird vor dem Experiment festgelegt, um zu kontrollieren, welche Fehlerrate toleriert wird.
+- $\beta$: Die Wahrscheinlichkeit, sich gegen die $H_1$ zu entscheiden, wenn die $H_1$ zutrifft.
+- Power := $1 - \beta$: Die Wahrscheinlichkeit, sich für die $H_1$ zu entscheiden, wenn die $H_1$ zutrifft. Sollte ebenfalls **vor** dem Experiment festgelegt werden.
+
+Die Power, die Wahrscheinlichkeit sich für die $H_1$ zu entscheiden wenn diese auch tatsächlich zutrifft stellt eine entscheidende Größe im Zusammenhang von experimentellen Untersuchungen dar. Letztendlich ist in den meisten Fällen die $H_1$ diejenige der Hypothesen die von größerem Interesse ist. Daher sollte **vor** dem Experiment das Design so gewählt werden, dass die Power so groß wie möglich ist um tatsächlich auch eine realistische Wahrscheinlichkeit zu haben einen Effekt von Interesse auch finden zu können.
+
+### Wie kann die Power erhöht werden? 
+
+Die Frage, die sich nun stellt, ist natürlicherweise: Wie kann die Power erhöht werden?
+
+In @fig-stats-sig-power-04 sind nochmals die beiden Verteilungen bei $\Delta = 500$ und $\Delta = 0$ abgetragen.
+
+```{r}
+#| fig-cap: "Verteilungen wenn $\\Delta$=500 und $\\Delta$=0 in unserem kleine Welt Beispiel mit n = 3."
+#| label: fig-stats-sig-power-04
+
+dat <- tibble(
+  di = c(differences$d + 500, differences$d),
+  hypo = rep(c('H500','H0'), c(n_sim,n_sim))
+)
+p_h500 <- ggplot(dat, aes(di, fill=hypo)) +
+  geom_density(alpha=0.5) +
+  labs(x = 'Differenzen[N]', y = 'relative Häufigkeit') +
+  scale_fill_discrete("Hypothese", labels=c(
+    expression(H[0]  ), expression(H[500])
+  ))
+print(p_h500)
+```
+
+Eine Entscheidung ist speziell problematisch im Bereich zwischen $0$ und $500$. Hier überlappen sich die beiden Verteilungen, und es entstehen dementsprechend Schwierigkeiten, einen beobachteten Wert, der in diesem Bereich  auftritt, eindeutig einer der beiden Hypothesen zuzuordnen. Ein Möglichkeit die Power zu erhöhen, beruht darauf, die Überlappung der beiden Verteilungen zu verkleinern. Dazu sind prinzipiell zwei Möglichkeiten vorhanden: Entweder der Unterschied zwischen den beiden $\Delta$s wird vergrößert (d.h., das Krafttraining müsste effizienter werden) oder die beiden Verteilungen werden schmaler gemacht, indem die Streuung der Werte verkleinert wird.
+
+In @fig-stats-sig-power-05 sind alle Parameter gleich geblieben wie in @fig-stats-sig-power-04, aber die Stichprobengröße wurde von $n = 3$ auf $n = 9$ erhöht.
+
+```{r}
+#| fig-cap: "Stichprobenverteilungen der Differenz unter $H_0$ und $H_1:\\delta=500$N bei einer Stichprobengröße von n = 9"
+#| label: fig-stats-sig-power-05
+
+sample_k9 <- readr::read_csv('data/sample_k9.csv')
+sigma <- sample_k9$sd[1]
+d <- sample_k9$m[2]
+xx = seq(-4*sigma,d+4*sigma)
+n_pts = length(xx)
+dat_k9 <- tibble(
+  x = rep(xx,2),
+  y = c(dnorm(xx, 0, sigma), dnorm(xx, d, sigma)),
+  hypo = rep(c('H0','H500'), c(n_pts, n_pts))
+)
+ggplot(dat_k9, aes(x,y,fill=hypo, ymin=0, ymax=y)) +
+  geom_ribbon(alpha=0.5) +
+  geom_line() +
+  scale_fill_discrete("Hypothese", labels=c(
+    expression(H[0]  ), expression(H[500])
+  )) +  
+  lims(x = c(-750, 1250)) +
+  labs(x = 'Differenzen[N]', y = 'relative Häufigkeiten') 
+```
+
+Es ist zu beobachten, dass die Position der Verteilungen gleich geblieben ist. Dies sollte nicht weiter verwundern, da immer noch die beiden Hypothesen $H_0: \Delta = 0$N und $H_1: \Delta = 500$N miteinander verglichen werden. Aber durch die Erhöhung der Stichprobengröße ist die Streuung der $D$s unter beiden Hypothesen kleiner geworden. Dies führt dazu, dass die Verteilungen nun steiler sind und dementsprechend weniger stark überlappen. Die Streuung der Statistik wird, wie schon oben erwähnt, als Standardfehler $s_e$ bezeichnet und beschreibt die Standardabweichung der Statistik. Der Standardfehler ist **nicht** gleich der Standardabweichung in der Population bzw. der Stichprobe (siehe @fig-stats-sig-standard-error-deriv).
+
+```{r}
+#| label: fig-stats-sig-standard-error-deriv
+#| fig-cap: "Zusammenhang zwischen den Parametern der Population, der Stichprobe und dem Standardfehler"
+
+df <- tibble(x = c(0, 1), y = c(0,1))
+df_n1 <- tibble(
+  x = seq(0,.6,length.out=100),
+  y = 0.1*dnorm(x, 0.3, 0.12)
+)
+df_n2 <- tibble(
+  x = seq(1.6, 2., length.out=100),
+  y = 0.04*dnorm(x, 1.8, 0.05)
+)
+df_sample <- tibble(
+    y = 0,
+    x = runif(13, 0.8, 1.2) 
+)
+
+ggplot(df, aes(x,y)) +
+  ggforce::geom_circle(data = tibble(x = 1, y = 0.9, r = 0.05),
+             aes(x0 = x, y0 = y, r = r), fill='light blue') + 
+  geom_curve(data = tibble(
+    x = .3, y = .7, xend = .95, yend=.95
+  ),
+  aes(x, y, xend=xend, yend=yend), curvature=-.5,
+  arrow = arrow(length=unit(.1, 'inches'), type='closed')) +
+  ggforce::geom_circle(data = tibble(x = 0.3, y = 0.7, r = 0.3),
+             aes(x0 = x, y0 = y, r = r), fill='light blue') +
+  geom_point(data = df_sample) +
+  geom_point(x = mean(df_sample$x), y = 0, color='red', size=2) +
+  geom_segment(data = tibble(
+    x = 1.6, xend = 2,
+    y = seq(.6, 1, length.out=10),
+    yend = y
+  ), aes(x=x, y=y, xend=xend, yend=yend), linetype='dotted') +
+  geom_point(data = tibble(
+    x = runif(10, 1.7, 1.9),
+    y = seq(.6, 1, length.out=10)
+  ), color='red') +
+  geom_segment(data = tibble(x=.3, y=0, yend=.35), aes(x,y,xend=x,yend=yend), color='red',
+               linetype = 'dashed') +
+  geom_segment(data = tibble(x=.15,xend=.45,y=.15), aes(x,y,xend=xend,yend=y), color='green',
+               linetype='dashed',
+               arrow = arrow(length=unit(.1, 'inches'), type='closed', ends='both')) +
+  geom_segment(data = tibble(x=1.8, y=0, yend=.35), aes(x,y,xend=x,yend=yend), color='red',
+               linetype = 'dashed') +
+  geom_segment(data = tibble(x=1.75,xend=1.85,y=.15), aes(x,y,xend=xend,yend=y), color='green',
+               linetype='dashed',
+               arrow = arrow(length=unit(.1, 'inches'), type='closed', ends='both')) +
+  geom_line(data = df_n1) + 
+  geom_line(data = df_n2) + 
+  geom_curve(data = tibble(x=1, y=0.64, xend=mean(df_sample$x), yend=0.05),
+             aes(x,y,xend=xend,yend=yend), curvature = -0.1,
+             arrow = arrow(length=unit(.1, 'inches'), type='closed')) +
+  geom_curve(data = tibble(x=mean(df_sample$x), y=0.05, xend=1.55, yend=1),
+             aes(x,y,xend=xend,yend=yend), curvature = -0.2,
+             arrow = arrow(length=unit(.1, 'inches'), type='closed'),
+             linetype = 'dotted') +
+  geom_curve(data = tibble(x=.95, y=0.85, xend=0.95, yend=.75),
+             aes(x,y,xend=xend,yend=yend), curvature = 0.3,
+             arrow = arrow(length=unit(.08, 'inches'), type='closed')) +  
+  annotate("text", x = 0.3, y = 0.7,
+           label=expression(paste('\U03BC, ',sigma)), size=5) +
+  annotate("text", x = 1, y = 0.7,
+           label=expression(paste(bar(x),', s')), size=5) +
+  annotate("text",
+           x = c(0.3, 1,  1.8, 1.8, 1,.3),
+           y = c(1.1, 1.1, 1.1,-.1,-.1,-.1),
+           label= c("Population","Stichprobe","Mehrere Stichproben",
+                    "Stichprobenverteilung", "Daten", "Verteilung")) +
+  annotate("text", x = 1.8, y = .4,
+          label=expression(paste("Standardfehler ",s[e])), size=5) +
+  scale_x_continuous(limits = c(0,2.3)) +
+  scale_y_continuous(limits = c(-0.1,1.2)) +
+  coord_equal() + theme_void()
+```
+
+Warum führt die Erhöhung der Stichprobengröße dazu, dass die Verteilungen steiler werden? Die Statistik die in diesen Fällen betrachtet wurde war der Unterschied $d$ zwischen den Gruppen. Durch die Erhöhung der Stichprobe kommt es nun dazu, dass dieser Unterschied $d$ weniger stark schwankt, denn dadurch, dass mehr Probandinnen betrachtet werden, ist die Chance das zwei extreme Mittelwerte in den beiden Gruppen auftauchen kleiner. Die Vergrößerung der Stichprobe führt dazu, dass extreme Werte eher *rausgemittelt* werden. Dies führt dazu, dass wenn die Mittelwerte weniger schwanken auch die Unterschiede zwischen den beiden Mittelwerten weniger schwanken. In der Folge ist die Standardabweichung der Differenzen $d$, der Standardfehler kleiner und die beiden Verteilungen unter der $H_0$ und der $H_1$ respektive werden steiler.
+
+::: {.callout-note}
+
+Für den Standardfehler des Mittelwerts, also wenn die Statistik der Mittelwert ist, dann gilt der folgende Zusammenhang:
+
+| Population | Stichprobe |
+| --- | --- | 
+| $\sigma_{\bar{X}}=\sqrt{\frac{\sigma^2}{n}} = \frac{\sigma}{\sqrt{n}}$ | $s_e=\sqrt{\frac{s^2}{n}}=\frac{s}{\sqrt{n}}$ | 
+
+: Standardfehler des Mittelwerts, n = Stichprobengröße {#tbl-stats-sig-standard-error}
+
+In @tbl-stats-sig-standard-error ist zu sehen, dass ein wurzelförmiger Zusammenhang zwischen dem Standardfehler $s_e$ und der Stichprobengröße besteht. Dieser Zusammenhang wird uns in verschiedenen Berechnungen zum Standardfehler verschiedener Statistiken immer wieder begegnen.
+
+:::
+
+::: {#exm-se-average}
+## Standardfehler des Mittelwerts
+
+Die Gleichheit des Standardfehler des Mittelwerts mit der Standardabweichung der Stichprobenverteilung der Mittelwerte ist im folgenden Beispiel im Rahmen eines kleinen `R` Programms einfach nachzuvollziehen. Dazu werden $1000$ Stichproben der Größe $N = 10$ aus einer Normalverteilung mit $\mu = 0$ und $\sigma=2$ gezogen und für jede Stichprobe wird der Mittelwert berechnet. Der theoretische Standardfehler ist:
+
+\begin{equation*}
+s_e = \frac{\sigma}{\sqrt{n}} = \frac{2}{\sqrt{10}} \approx 0.63
+\end{equation*}
+
+```{r}
+
+n_sim <- 1000
+N <- 10
+mu <- 0
+sigma <- 2
+x_bars <- replicate(n_sim, mean(rnorm(N, mean=mu, sd=sigma)))
+sd(x_bars)
+```
+
+Es ist zu beobachten, dass der empirische Standardfehler, im Rahmen der Stichprobenvariabilität, den theoretischen Wert tatsächlich sehr gut approximiert. Bei mehr Simulationsdurchgängen wird entsprechend der Unterschied immer kleiner.
+:::
+
+```{r}
+#| label: fig-stats-sig-sqrtfcn
+#| fig-cap: "Funktionaler Zusammenhang zwischen $x$ und $\\sqrt{x}$."
+
+tibble(x = seq(0, 100), y = sqrt(x)) |> 
+  ggplot(aes(x,y)) +
+  geom_line() +
+  labs(x = 'x', y = expression(y==sqrt(x)))
+```
+
+In @fig-stats-sig-sqrtfcn ist zur Erinnerung aus der Schule die Funktion $y = \sqrt{x}$ abgetragen. Daran sehen wir, dass die Funktionswerte für kleine Werte von $x$ steil ansteigen und später dann anfangen, immer langsamer größer zu werden. Angewendet auf unsere Power-Frage: Wenn der Standardfehler mit der Wurzel der Stichprobengröße $n$ kleiner wird, dann ist dies besonders bei kleinen Stichprobengrößen von Bedeutung, also zum Beispiel der Unterschied zwischen $n = 10$ und $n = 20$. Der gleiche Stichprobenunterschied dagegen zwischen $n = 110$ und $n = 120$ fällt nicht mehr ganz so stark ins Gewicht. Das heißt, bei kleinen Stichproben sollte um jede zusätzliche Teilnehmerin bzw. jeden zusätzlichen Teilnehmer gekämpft werden. Allgemein gilt: Je größer die Stichprobengröße, desto größer die Power.
+
+Insgesamt stellen also entweder die Vergrößerung des zu erwartenden Effekts oder die Größe der Stichprobe die zwei direktesten Methoden dar, um die Power im Rahmen eines Experiments zu erhöhen.
+
+## Things to know
+
+- $H_0$ und $H_1$
+- $\alpha$-Fehler
+- $\beta$-Fehler
+- Power
+- Standardfehler
+
+## Weitere Literatur
+
+Ein interessanter Artikel, der die Auswirkungen beleuchtet, wenn Studien zu wenig Power haben: @button2013. In @djulbegovic2007 findet sich eine interessante Diskussion darüber, unter welchen Bedingungen statistisch signifikante Ergebnisse als wahr angesehen werden sollten. In @borg2023 ist eine Untersuchung zu der unerwartet hohen Anzahl von statistisch signifikanten Ergebnissen in der sportwissenschaftlichen Literatur dokumentiert (siehe auch @haeffel2022). In @sandercock2024 wird ein Beispiel dokumentiert, das zeigt, wie häufig der Standardfehler mit der Standardabweichung verwechselt wird (siehe auch @kadlec2022).
+
+

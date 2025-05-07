@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.42">
+<meta name="generator" content="quarto-1.6.32">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>3&nbsp; Parameterschätzung – Skriptum - Einführung in die Statistik</title>
+<title>4&nbsp; Parameterschätzung – Skriptum - Einführung in die Statistik</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -85,16 +85,16 @@ div.csl-indent {
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./stats_ttest.html" rel="next">
-<link href="./stats_significance.html" rel="prev">
+<link href="./stats_errorprobability.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-2486e1f0a3ee9ee1fc393803a1361cdb.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-8da5b4427184b79ecddefad3d342027e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-f90a1b115807ea56b20e50efb3bb25e2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -177,7 +177,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./stats_estimation.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Parameterschätzung</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./stats_estimation.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Parameterschätzung</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Suchen" onclick="window.quartoOpenSearch();">
@@ -217,49 +217,55 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./stats_significance.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Statistische Signifikanz, p-Wert und Power</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Statistische Signifikanz</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./stats_errorprobability.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Irrtumswahrscheinlichkeit</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./stats_estimation.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Parameterschätzung</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Parameterschätzung</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./stats_ttest.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Der t-Test</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Der t-Test</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./stats_anova.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Die Varianzanalyse</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Die Varianzanalyse</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./stats_correlation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Die Korrelation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Die Korrelation</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./stats_regression.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Die Regression</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Die Regression</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./stats_nonparametric.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Nichtparametrische Tests</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Nichtparametrische Tests</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ethics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Ethik</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Ethik</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -278,11 +284,11 @@ window.Quarto = {
     <h2 id="toc-title">Inhaltsverzeichnis</h2>
    
   <ul>
-  <li><a href="#welche-hypothesen-sind-kompatibel-mit-dem-beobachteten-effekt" id="toc-welche-hypothesen-sind-kompatibel-mit-dem-beobachteten-effekt" class="nav-link active" data-scroll-target="#welche-hypothesen-sind-kompatibel-mit-dem-beobachteten-effekt"><span class="header-section-number">3.1</span> Welche Hypothesen sind kompatibel mit dem beobachteten Effekt?</a></li>
-  <li><a href="#dualität-von-signifikanztests-und-konfidenzintervall" id="toc-dualität-von-signifikanztests-und-konfidenzintervall" class="nav-link" data-scroll-target="#dualität-von-signifikanztests-und-konfidenzintervall"><span class="header-section-number">3.2</span> Dualität von Signifikanztests und Konfidenzintervall</a></li>
-  <li><a href="#die-fisher-vs.-neyman-pearson-kontroverse" id="toc-die-fisher-vs.-neyman-pearson-kontroverse" class="nav-link" data-scroll-target="#die-fisher-vs.-neyman-pearson-kontroverse"><span class="header-section-number">3.3</span> Die Fisher vs.&nbsp;Neyman-Pearson Kontroverse</a></li>
-  <li><a href="#things-to-know" id="toc-things-to-know" class="nav-link" data-scroll-target="#things-to-know"><span class="header-section-number">3.4</span> Things to know</a></li>
-  <li><a href="#zum-nach--und-weiterlesen" id="toc-zum-nach--und-weiterlesen" class="nav-link" data-scroll-target="#zum-nach--und-weiterlesen"><span class="header-section-number">3.5</span> Zum Nach- und Weiterlesen</a></li>
+  <li><a href="#welche-hypothesen-sind-kompatibel-mit-dem-beobachteten-effekt" id="toc-welche-hypothesen-sind-kompatibel-mit-dem-beobachteten-effekt" class="nav-link active" data-scroll-target="#welche-hypothesen-sind-kompatibel-mit-dem-beobachteten-effekt"><span class="header-section-number">4.1</span> Welche Hypothesen sind kompatibel mit dem beobachteten Effekt?</a></li>
+  <li><a href="#dualität-von-signifikanztests-und-konfidenzintervall" id="toc-dualität-von-signifikanztests-und-konfidenzintervall" class="nav-link" data-scroll-target="#dualität-von-signifikanztests-und-konfidenzintervall"><span class="header-section-number">4.2</span> Dualität von Signifikanztests und Konfidenzintervall</a></li>
+  <li><a href="#die-fisher-vs.-neyman-pearson-kontroverse" id="toc-die-fisher-vs.-neyman-pearson-kontroverse" class="nav-link" data-scroll-target="#die-fisher-vs.-neyman-pearson-kontroverse"><span class="header-section-number">4.3</span> Die Fisher vs.&nbsp;Neyman-Pearson Kontroverse</a></li>
+  <li><a href="#things-to-know" id="toc-things-to-know" class="nav-link" data-scroll-target="#things-to-know"><span class="header-section-number">4.4</span> Things to know</a></li>
+  <li><a href="#zum-nach--und-weiterlesen" id="toc-zum-nach--und-weiterlesen" class="nav-link" data-scroll-target="#zum-nach--und-weiterlesen"><span class="header-section-number">4.5</span> Zum Nach- und Weiterlesen</a></li>
   </ul>
 </nav>
     </div>
@@ -291,7 +297,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Parameterschätzung</span></h1>
+<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Parameterschätzung</span></h1>
 </div>
 
 
@@ -309,11 +315,11 @@ window.Quarto = {
 
 
 <p>Bisher haben wir die Daten mittels Hypothesentests betrachtet. D. h., wir haben eine <span class="math inline">\(H_0\)</span>- und <span class="math inline">\(H_1\)</span>-Hypothese formuliert und dann anhand der Stichprobenverteilung abgeschätzt, wie kompatibel unser beobachteter Wert mit der <span class="math inline">\(H_0\)</span>-Hypothese ist. Dadurch haben wir eine dichotome Betrachtung der Daten durchgeführt: Entweder war der beobachtete Wert statistisch signifikant unter der <span class="math inline">\(H_0\)</span> oder eben nicht. Diese Unterteilung der Entscheidung in nur zwei verschiedene Ausgänge – neben dem Problem, dass wir eine Frage beantworten, die wir oftmals gar nicht gestellt haben – bringt jedoch einige grundlegende Nachteile mit sich, die wir nun genauer betrachten.</p>
-<p>Das folgende Beispiel ist entnommen aus <span class="citation" data-cites="cumming2013">Cumming (<a href="references.html#ref-cumming2013" role="doc-biblioref">2013, p.1</a>)</span>. Wir haben zwei Forschergruppen, die Gruppen “Glücklich” und “Pech”. Beide Gruppen haben das gleiche Experiment durchgeführt, eine Krafttrainingsintervention. Die Gruppe “Glücklich” hat insgesamt <span class="math inline">\(N = 44\)</span> Teilnehmer in zwei unabhängigen Gruppen untersucht, während die Gruppe “Pech” <span class="math inline">\(N = 36\)</span> Teilnehmer in zwei unabhängigen Gruppen untersucht hat. Die beiden Untersuchungen kamen zu den folgenden Ergebnissen (siehe <a href="#tbl-stats-est-prob" class="quarto-xref">Tabelle&nbsp;<span>3.1</span></a>).</p>
+<p>Das folgende Beispiel ist entnommen aus <span class="citation" data-cites="cumming2013">Cumming (<a href="references.html#ref-cumming2013" role="doc-biblioref">2013, p.1</a>)</span>. Wir haben zwei Forschergruppen, die Gruppen “Glücklich” und “Pech”. Beide Gruppen haben das gleiche Experiment durchgeführt, eine Krafttrainingsintervention. Die Gruppe “Glücklich” hat insgesamt <span class="math inline">\(N = 44\)</span> Teilnehmer in zwei unabhängigen Gruppen untersucht, während die Gruppe “Pech” <span class="math inline">\(N = 36\)</span> Teilnehmer in zwei unabhängigen Gruppen untersucht hat. Die beiden Untersuchungen kamen zu den folgenden Ergebnissen (siehe <a href="#tbl-stats-est-prob" class="quarto-xref">Tabelle&nbsp;<span>4.1</span></a>).</p>
 <div id="tbl-stats-est-prob" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-stats-est-prob-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabelle&nbsp;3.1: Ergebnisse der Untersuchung der Forschergruppen Glücklich und Pech (D = Differenz)
+Tabelle&nbsp;4.1: Ergebnisse der Untersuchung der Forschergruppen Glücklich und Pech (D = Differenz)
 </figcaption>
 <div aria-describedby="tbl-stats-est-prob-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
@@ -352,13 +358,13 @@ Tabelle&nbsp;3.1: Ergebnisse der Untersuchung der Forschergruppen Glücklich und
 <img src="stats_estimation_files/figure-html/fig-stats-est-prob-01-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-stats-est-prob-01-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Abbildung&nbsp;3.1: Gruppendifferenzen für die beiden Forschergruppen
+Abbildung&nbsp;4.1: Gruppendifferenzen für die beiden Forschergruppen
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>Wenn wir uns die Differenzen in <a href="#fig-stats-est-prob-01" class="quarto-xref">Abbildung&nbsp;<span>3.1</span></a> anschauen, dann sehen die Ergebnisse eigentlich gar nicht so widersprüchlich aus. Beide Effekte sind in die gleiche Richtung, nur die Effektstärke unterscheidet sich zwischen den beiden Gruppen. Wenn uns jemand zwingen würde, eine Abschätzung zu geben, wie groß der Effekt der Trainingsintervention ist, dann würden wir wahrscheinlich einen Wert zwischen den beiden beobachteten Werten angeben.</p>
+<p>Wenn wir uns die Differenzen in <a href="#fig-stats-est-prob-01" class="quarto-xref">Abbildung&nbsp;<span>4.1</span></a> anschauen, dann sehen die Ergebnisse eigentlich gar nicht so widersprüchlich aus. Beide Effekte sind in die gleiche Richtung, nur die Effektstärke unterscheidet sich zwischen den beiden Gruppen. Wenn uns jemand zwingen würde, eine Abschätzung zu geben, wie groß der Effekt der Trainingsintervention ist, dann würden wir wahrscheinlich einen Wert zwischen den beiden beobachteten Werten angeben.</p>
 <p>Schauen wir uns mal einen anderen Fall an.</p>
 <div class="cell">
 <div class="cell-output-display">
@@ -368,23 +374,23 @@ Abbildung&nbsp;3.1: Gruppendifferenzen für die beiden Forschergruppen
 <img src="stats_estimation_files/figure-html/fig-stats-est-prob-02-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-stats-est-prob-02-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Abbildung&nbsp;3.2: Beispiel für ein anderes Ergebnis der Gruppendifferenzen für die beiden Forschgruppen
+Abbildung&nbsp;4.2: Beispiel für ein anderes Ergebnis der Gruppendifferenzen für die beiden Forschgruppen
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>Hätten wir das Ergebnis aus <a href="#fig-stats-est-prob-02" class="quarto-xref">Abbildung&nbsp;<span>3.2</span></a> beobachtet, dann würden wir wahrscheinlich schon eher von einem widersprüchlichen Ergebnis in der Literatur sprechen. Wenn wir wieder unter Zwang einen Wert angeben müssten, dann wahrscheinlich einen in der Nähe von <span class="math inline">\(D = 0\)</span>. In beiden Fällen haben wir aber unter der rein dichotomen Betrachtung das gleiche Ergebnis (1 x statistisch signifikant + 1 x statistisch nicht signifikant). Daraus können wir schließen, dass wir bei der Interpretation von Forschungsergebnissen nicht nur die statistische Signifikanz betrachten sollten, sondern auch die Richtung der Effekte und deren Größe. Diese sollten ebenfalls einbezogen werden, wenn wir uns ein Bild über die Evidenz machen wollen. Dazu gehört natürlich ebenfalls eine Betrachtung des Forschungsdesigns und insbesondere der Stichprobengröße <span class="math inline">\(N\)</span>.</p>
+<p>Hätten wir das Ergebnis aus <a href="#fig-stats-est-prob-02" class="quarto-xref">Abbildung&nbsp;<span>4.2</span></a> beobachtet, dann würden wir wahrscheinlich schon eher von einem widersprüchlichen Ergebnis in der Literatur sprechen. Wenn wir wieder unter Zwang einen Wert angeben müssten, dann wahrscheinlich einen in der Nähe von <span class="math inline">\(D = 0\)</span>. In beiden Fällen haben wir aber unter der rein dichotomen Betrachtung das gleiche Ergebnis (1 x statistisch signifikant + 1 x statistisch nicht signifikant). Daraus können wir schließen, dass wir bei der Interpretation von Forschungsergebnissen nicht nur die statistische Signifikanz betrachten sollten, sondern auch die Richtung der Effekte und deren Größe. Diese sollten ebenfalls einbezogen werden, wenn wir uns ein Bild über die Evidenz machen wollen. Dazu gehört natürlich ebenfalls eine Betrachtung des Forschungsdesigns und insbesondere der Stichprobengröße <span class="math inline">\(N\)</span>.</p>
 <div id="exm-ci-01" class="theorem example">
-<p><span class="theorem-title"><strong>Beispiel 3.1</strong></span> In <span class="citation" data-cites="coleman2023">Coleman u.&nbsp;a. (<a href="references.html#ref-coleman2023" role="doc-biblioref">2023</a>)</span> wurden die Auswirkungen von betreutem gegenüber unbetreutem Krafttraining auf Kraft und Hypertrophie bei trainierten Personen untersucht. <span class="math inline">\(N = 36\)</span> junge Männer und Frauen wurden zufällig einer von zwei experimentellen Gruppen zugewiesen, um ein 8-wöchiges Krafttrainingsprogramm durchzuführen: Eine Gruppe erhielt direkte Aufsicht während der Trainingseinheiten (supervision: SUP), während die Kontrollgruppe dasselbe Programm ohne Betreuung (unsupervised: UNSUP) durchführte. Während die meisten Ergebnisse keine Unterschiede zwischen den Gruppen andeuteten, zeigten die Ergebnisse eine erhöhte Zunahme der Gesamtkörpermuskelmasse um <span class="math inline">\(0.54,\ 90\%CI[0.05, 0.98]\)</span> kg. D. h., wenn wir als Zielgröße die Muskelmasse ansteuern wollen, müssen wir uns anhand des Intervalls überlegen, ob der Aufwand eines vollständig betreuten Trainings hinsichtlich eines möglicherweise minimalen Zuwachses von <span class="math inline">\(\Delta = 0.05\)</span> kg gerechtfertigt ist.</p>
+<p><span class="theorem-title"><strong>Beispiel 4.1</strong></span> In <span class="citation" data-cites="coleman2023">Coleman u.&nbsp;a. (<a href="references.html#ref-coleman2023" role="doc-biblioref">2023</a>)</span> wurden die Auswirkungen von betreutem gegenüber unbetreutem Krafttraining auf Kraft und Hypertrophie bei trainierten Personen untersucht. <span class="math inline">\(N = 36\)</span> junge Männer und Frauen wurden zufällig einer von zwei experimentellen Gruppen zugewiesen, um ein 8-wöchiges Krafttrainingsprogramm durchzuführen: Eine Gruppe erhielt direkte Aufsicht während der Trainingseinheiten (supervision: SUP), während die Kontrollgruppe dasselbe Programm ohne Betreuung (unsupervised: UNSUP) durchführte. Während die meisten Ergebnisse keine Unterschiede zwischen den Gruppen andeuteten, zeigten die Ergebnisse eine erhöhte Zunahme der Gesamtkörpermuskelmasse um <span class="math inline">\(0.54,\ 90\%CI[0.05, 0.98]\)</span> kg. D. h., wenn wir als Zielgröße die Muskelmasse ansteuern wollen, müssen wir uns anhand des Intervalls überlegen, ob der Aufwand eines vollständig betreuten Trainings hinsichtlich eines möglicherweise minimalen Zuwachses von <span class="math inline">\(\Delta = 0.05\)</span> kg gerechtfertigt ist.</p>
 </div>
-<section id="welche-hypothesen-sind-kompatibel-mit-dem-beobachteten-effekt" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="welche-hypothesen-sind-kompatibel-mit-dem-beobachteten-effekt"><span class="header-section-number">3.1</span> Welche Hypothesen sind kompatibel mit dem beobachteten Effekt?</h2>
+<section id="welche-hypothesen-sind-kompatibel-mit-dem-beobachteten-effekt" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="welche-hypothesen-sind-kompatibel-mit-dem-beobachteten-effekt"><span class="header-section-number">4.1</span> Welche Hypothesen sind kompatibel mit dem beobachteten Effekt?</h2>
 <p>Aus den Ausführungen von eben ist hoffentlich klar geworden, dass wir den beobachteten Effekt, also im Beispiel die Größe des Unterschieds, ebenfalls dokumentieren müssen, da er für die Interpretation des Ergebnisses wichtig ist. Letztendlich ist die Größe des Effekts auch ausschlaggebend, ob ich zum Beispiel eine Trainingsintervention mit meinen Athletinnen durchführe. Mir reicht es nicht zu wissen, dass ein statistisch signifikanter Effekt in Studien gefunden wurde; ich möchte auch die Größe des Effekts kennen.</p>
 <p>Gehen wir zurück zu unserem Lummerland-Beispiel. Das Ergebnis der Intervention könnte beispielsweise die folgenden Stichprobenkennwerte bei <span class="math inline">\(N = 9\)</span> haben. Wir beobachten einen Unterschied von <span class="math inline">\(D = \bar{x}_{treat} - \bar{x}_{con} = 350\)</span> zwischen den Gruppen. Beide Stichproben zeigen eine Standardabweichung von <span class="math inline">\(s = 54\)</span>, was zu einem Standardfehler von <span class="math inline">\(s_e = 25\)</span> führt (Rechnung unterschlagen). Dies ist unsere <strong>Schätzung der Populationsparameter</strong> <span class="math inline">\(\mu\)</span> und <span class="math inline">\(\sigma\)</span> anhand der Stichprobe. Der Standardfehler gibt uns eine Schätzung über die Präzision unseres Schätzwertes <span class="math inline">\(D\)</span>. Wenn der Standardfehler <span class="math inline">\(s_e\)</span> sehr groß ist, dann bedeutet dies, dass wir den Wert nur sehr unpräzise geschätzt haben. Andersherum, wenn <span class="math inline">\(s_e\)</span> sehr klein ist. Daran schließt sich die Frage an, was die Präzision für meine Schätzung bedeutet. Präzision in diesem Zusammenhang bedeutet, welche anderen Werte neben dem beobachteten Wert ebenfalls plausibel genug sind, um den beobachteten Wert generiert zu haben. In unserem Beispiel: Welche anderen Unterschiedswerte <span class="math inline">\(D\)</span> sind anhand der beobachteten Daten ebenfalls plausibel?</p>
 <p>Der Wert <span class="math inline">\(D = 350\)</span> spricht dafür, dass der wahrscheinlichste Wert für <span class="math inline">\(\Delta\)</span> eben <span class="math inline">\(\Delta = 350\)</span> ist. Allerdings ist es auch nachvollziehbar, dass der Wert <span class="math inline">\(\Delta = 350 - 0.0000001\)</span> ebenfalls nicht direkt unplausibel ist. Letztendlich zeigen wir mit Hilfe des Standardfehlers <span class="math inline">\(s_e = 25\)</span>, dass unsere Schätzung eben mit einer Unsicherheit behaftet ist. Mit der gleichen Überlegung könnten wir daher den Wert <span class="math inline">\(\Delta = 350 - \frac{54}{2}\)</span> wahrscheinlich auch noch als nicht komplett abwegig begründen. Nach diesen Ausführungen müssen wir uns daher zunächst einmal überlegen, was genau “plausibel” in diesem Zusammenhang heißen könnte.</p>
 <p>Steigen wir wieder mit der <span class="math inline">\(H_0\)</span> ein. Wir behalten die <span class="math inline">\(H_0\)</span> bei, wenn der beobachtete Wert der Teststatistik nicht in den kritischen Bereichen unter der Annahme der Korrektheit von <span class="math inline">\(H_0\)</span> liegt. Wenn der beobachtete Wert im kritischen Bereich liegt, dann sehen wir ihn unter der <span class="math inline">\(H_0\)</span> als überraschend oder eben nicht plausibel an. Diesen Ansatz können wir daher umdrehen, und umgekehrt, wenn der Wert nicht im kritischen Bereich liegt, dann ist er unter der <span class="math inline">\(H_0\)</span> plausibel und nicht überraschend. Dementsprechend können wir ein Kriterium für Plausibilität so definieren: Wenn der beobachtete Wert unter der angenommenen Hypothese nicht zur Ablehnung der Hypothese führt. Gehen wir jetzt von einem beobachteten Wert aus, dann können wir die Frage so stellen: Welche Hypothesen, wenn wir sie vorher als <span class="math inline">\(H_0\)</span> definiert hätten, würden unter dem beobachteten Wert nicht abgelehnt werden? Anders gesagt, wir suchen nun all diejenigen <span class="math inline">\(H_0\)</span>-Hypothesen, die, wenn wir sie so vor dem Experiment angesetzt hätten, beibehalten worden wären.</p>
-<p>In <a href="#fig-stats-est-ci-01" class="quarto-xref">Abbildung&nbsp;<span>3.3</span></a> ist eine Verteilung und derjenige Bereich abgetragen, den wir bisher als nicht kritisch bezeichnet haben. D. h., alle Werte, die im grünen Bereich liegen, sind kompatibel mit der angesetzten <span class="math inline">\(H_0\)</span>.</p>
+<p>In <a href="#fig-stats-est-ci-01" class="quarto-xref">Abbildung&nbsp;<span>4.3</span></a> ist eine Verteilung und derjenige Bereich abgetragen, den wir bisher als nicht kritisch bezeichnet haben. D. h., alle Werte, die im grünen Bereich liegen, sind kompatibel mit der angesetzten <span class="math inline">\(H_0\)</span>.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-stats-est-ci-01" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -393,13 +399,13 @@ Abbildung&nbsp;3.2: Beispiel für ein anderes Ergebnis der Gruppendifferenzen f�
 <img src="stats_estimation_files/figure-html/fig-stats-est-ci-01-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-stats-est-ci-01-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Abbildung&nbsp;3.3: Bereich, bei dem beobachtete Werte unter der Hypothese beibehalten werden
+Abbildung&nbsp;4.3: Bereich, bei dem beobachtete Werte unter der Hypothese beibehalten werden
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>Fügen wir nun einen beobachteten Wert hinzu (<a href="#fig-stats-est-ci-02" class="quarto-xref">Abbildung&nbsp;<span>3.4</span></a>).</p>
+<p>Fügen wir nun einen beobachteten Wert hinzu (<a href="#fig-stats-est-ci-02" class="quarto-xref">Abbildung&nbsp;<span>4.4</span></a>).</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-stats-est-ci-02" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -408,7 +414,7 @@ Abbildung&nbsp;3.3: Bereich, bei dem beobachtete Werte unter der Hypothese beibe
 <img src="stats_estimation_files/figure-html/fig-stats-est-ci-02-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-stats-est-ci-02-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Abbildung&nbsp;3.4: Bereich, bei dem beobachtete Werte unter der Hypothese beibehalten werden, und ein beobachteter Wert
+Abbildung&nbsp;4.4: Bereich, bei dem beobachtete Werte unter der Hypothese beibehalten werden, und ein beobachteter Wert
 </figcaption>
 </figure>
 </div>
@@ -424,13 +430,13 @@ Abbildung&nbsp;3.4: Bereich, bei dem beobachtete Werte unter der Hypothese beibe
 <img src="stats_estimation_files/figure-html/fig-stats-est-ci-03-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-stats-est-ci-03-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Abbildung&nbsp;3.5: Bereich bei dem beobachtete Werte unter der Hypothese <span class="math inline">\(H_0^*\)</span> beibehalten werden und der beobachtete Wert
+Abbildung&nbsp;4.5: Bereich bei dem beobachtete Werte unter der Hypothese <span class="math inline">\(H_0^*\)</span> beibehalten werden und der beobachtete Wert
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>In <a href="#fig-stats-est-ci-03" class="quarto-xref">Abbildung&nbsp;<span>3.5</span></a> ist nun der Bereich für die neue Hypothese <span class="math inline">\(H_0^*\)</span> abgetragen. Wie zu sehen ist, liegt der beobachtete Wert auch für diese Hypothese in dem Bereich, den wir unter der neuen Hypothese <span class="math inline">\(H_0^*\)</span> als unkritisch bzw. kompatibel betrachten. Diesen Ablauf können wir nun in beide Richtungen weiterführen. D. h., wir schieben systematisch <span class="math inline">\(H_0\)</span>-Hypothesen von <span class="math inline">\(-\infty\)</span> bis <span class="math inline">\(\infty\)</span> und schauen, ob der beobachtete Wert in den unkritischen Bereichen für die jeweilige Hypothese liegt. Die kleinste Hypothese, die am weitesten links liegende Hypothese, bezeichnen wir nun als <span class="math inline">\(H_{lower}\)</span> und entsprechend die größte Hypothese, die am weitesten rechts liegende Hypothese, als <span class="math inline">\(H_{upper}\)</span>. Dadurch haben wir jetzt einen Bereich von Hypothesen ausgezeichnet, mit der Eigenschaft, dass alle Hypothesen zwischen <span class="math inline">\(H_{lower}\)</span> und <span class="math inline">\(H_{upper}\)</span> kompatibel mit dem beobachteten Wert sind. Bei all diesen Überlegungen spielt der tatsächlich in der Population liegende Wert <span class="math inline">\(\Delta\)</span> keine Rolle!</p>
+<p>In <a href="#fig-stats-est-ci-03" class="quarto-xref">Abbildung&nbsp;<span>4.5</span></a> ist nun der Bereich für die neue Hypothese <span class="math inline">\(H_0^*\)</span> abgetragen. Wie zu sehen ist, liegt der beobachtete Wert auch für diese Hypothese in dem Bereich, den wir unter der neuen Hypothese <span class="math inline">\(H_0^*\)</span> als unkritisch bzw. kompatibel betrachten. Diesen Ablauf können wir nun in beide Richtungen weiterführen. D. h., wir schieben systematisch <span class="math inline">\(H_0\)</span>-Hypothesen von <span class="math inline">\(-\infty\)</span> bis <span class="math inline">\(\infty\)</span> und schauen, ob der beobachtete Wert in den unkritischen Bereichen für die jeweilige Hypothese liegt. Die kleinste Hypothese, die am weitesten links liegende Hypothese, bezeichnen wir nun als <span class="math inline">\(H_{lower}\)</span> und entsprechend die größte Hypothese, die am weitesten rechts liegende Hypothese, als <span class="math inline">\(H_{upper}\)</span>. Dadurch haben wir jetzt einen Bereich von Hypothesen ausgezeichnet, mit der Eigenschaft, dass alle Hypothesen zwischen <span class="math inline">\(H_{lower}\)</span> und <span class="math inline">\(H_{upper}\)</span> kompatibel mit dem beobachteten Wert sind. Bei all diesen Überlegungen spielt der tatsächlich in der Population liegende Wert <span class="math inline">\(\Delta\)</span> keine Rolle!</p>
 <p>Führen wir eine kleine Vereinfachung der graphischen Darstellung des kompatiblen Bereichs für eine gegebene Hypothese durch.</p>
 <div class="cell">
 <div class="cell-output-display">
@@ -440,13 +446,13 @@ Abbildung&nbsp;3.5: Bereich bei dem beobachtete Werte unter der Hypothese <span 
 <img src="stats_estimation_files/figure-html/fig-stats-est-ci-04-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-stats-est-ci-04-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Abbildung&nbsp;3.6: Graphische Darstellung des kompatiblen Bereichs für eine Hypothese.
+Abbildung&nbsp;4.6: Graphische Darstellung des kompatiblen Bereichs für eine Hypothese.
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>In <a href="#fig-stats-est-ci-04" class="quarto-xref">Abbildung&nbsp;<span>3.6</span></a> ist der mit den Daten kompatible Hypothesenbereich mittels einer Linie und eines Punktes dargestellt. Der Punkt zeigt den Wert der jeweiligen Hypothese an, während die Striche rechts und links die untere und obere Grenze des kompatiblen Bereichs darstellen. Die Grenzen des kompatiblen Bereichs sind eine Funktion des gewählten <span class="math inline">\(\alpha\)</span>-Levels. Wenn mein <span class="math inline">\(\alpha\)</span> kleiner wird, dann dehnen sich die beiden Striche aus. Wenn mein <span class="math inline">\(\alpha\)</span> größer wird, dann verkürzen sie sich dementsprechend. Noch einmal: Wir verwenden <span class="math inline">\(\alpha\)</span>, um kritische Bereiche zu definieren. Tragen wir nun einmal alle Intervalle systematisch von links nach rechts ab, deren Hypothesen mit dem beobachteten Wert (den Daten) kompatibel sind. Dies führt dann zu der Darstellung in <a href="#fig-stats-est-ci-05" class="quarto-xref">Abbildung&nbsp;<span>3.7</span></a>.</p>
+<p>In <a href="#fig-stats-est-ci-04" class="quarto-xref">Abbildung&nbsp;<span>4.6</span></a> ist der mit den Daten kompatible Hypothesenbereich mittels einer Linie und eines Punktes dargestellt. Der Punkt zeigt den Wert der jeweiligen Hypothese an, während die Striche rechts und links die untere und obere Grenze des kompatiblen Bereichs darstellen. Die Grenzen des kompatiblen Bereichs sind eine Funktion des gewählten <span class="math inline">\(\alpha\)</span>-Levels. Wenn mein <span class="math inline">\(\alpha\)</span> kleiner wird, dann dehnen sich die beiden Striche aus. Wenn mein <span class="math inline">\(\alpha\)</span> größer wird, dann verkürzen sie sich dementsprechend. Noch einmal: Wir verwenden <span class="math inline">\(\alpha\)</span>, um kritische Bereiche zu definieren. Tragen wir nun einmal alle Intervalle systematisch von links nach rechts ab, deren Hypothesen mit dem beobachteten Wert (den Daten) kompatibel sind. Dies führt dann zu der Darstellung in <a href="#fig-stats-est-ci-05" class="quarto-xref">Abbildung&nbsp;<span>4.7</span></a>.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-stats-est-ci-05" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -455,15 +461,15 @@ Abbildung&nbsp;3.6: Graphische Darstellung des kompatiblen Bereichs für eine Hy
 <img src="stats_estimation_files/figure-html/fig-stats-est-ci-05-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-stats-est-ci-05-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Abbildung&nbsp;3.7: Kompatibles Intervall (grün), Populationsparameter <span class="math inline">\(\delta\)</span> und <span class="math inline">\(\alpha\)</span>-Level für die beobachtete Differenz (gelb).
+Abbildung&nbsp;4.7: Kompatibles Intervall (grün), Populationsparameter <span class="math inline">\(\delta\)</span> und <span class="math inline">\(\alpha\)</span>-Level für die beobachtete Differenz (gelb).
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>Der beobachtete Wert ist in Gelb abgetragen, und wir schieben die Intervalle von links kommend nach rechts. In <a href="#fig-stats-est-ci-05" class="quarto-xref">Abbildung&nbsp;<span>3.7</span></a> haben wir die Intervalle vertikal etwas versetzt, um sie besser sichtbar zu machen. Das erste Intervall, dessen rechtes Ende die gelbe Linie berührt, ist dabei die Hypothese mit dem geringsten <span class="math inline">\(\delta_{\text{low}}\)</span>, die noch kompatibel mit den Daten ist. Das Gleiche gilt auf der rechten Seite mit der größten Hypothese <span class="math inline">\(\delta_{\text{upper}}\)</span>, deren linker Rand die gelbe Linie gerade so noch streift.</p>
+<p>Der beobachtete Wert ist in Gelb abgetragen, und wir schieben die Intervalle von links kommend nach rechts. In <a href="#fig-stats-est-ci-05" class="quarto-xref">Abbildung&nbsp;<span>4.7</span></a> haben wir die Intervalle vertikal etwas versetzt, um sie besser sichtbar zu machen. Das erste Intervall, dessen rechtes Ende die gelbe Linie berührt, ist dabei die Hypothese mit dem geringsten <span class="math inline">\(\delta_{\text{low}}\)</span>, die noch kompatibel mit den Daten ist. Das Gleiche gilt auf der rechten Seite mit der größten Hypothese <span class="math inline">\(\delta_{\text{upper}}\)</span>, deren linker Rand die gelbe Linie gerade so noch streift.</p>
 <p>Wenn wir nun die Werte <span class="math inline">\(\delta_{\text{lower}}\)</span> und <span class="math inline">\(\delta_{\text{upper}}\)</span> als die Randwerte eines Intervalls festlegen, dann sind alle Hypothesen zwischen diesen beiden Grenzen kompatibel mit den Daten. D. h., wenn einer dieser Werte initial unsere <span class="math inline">\(H_0\)</span> gewesen wäre, dann hätten wir die <span class="math inline">\(H_0\)</span> nicht abgelehnt.</p>
-<p>Achtung, und das ist ein ganz großes Achtung: Das sind alles Aussagen über die beobachteten Daten. Das ist keine Aussage über die tatsächliche <span class="math inline">\(H_0\)</span>, mit der wir in das Experiment gegangen sind. Das Verhältnis zwischen dieser <span class="math inline">\(H_0\)</span> und diesem Intervall schauen wir uns als Nächstes an. Vorher werfen wir noch einmal einen kurzen Blick auf <a href="#fig-stats-est-ci-05" class="quarto-xref">Abbildung&nbsp;<span>3.7</span></a>. In Schwarz ist der tatsächliche wahre Populationswert abgetragen. Wir sehen, dass in diesem Fall der wahre Wert auch innerhalb des Intervalls liegt.</p>
+<p>Achtung, und das ist ein ganz großes Achtung: Das sind alles Aussagen über die beobachteten Daten. Das ist keine Aussage über die tatsächliche <span class="math inline">\(H_0\)</span>, mit der wir in das Experiment gegangen sind. Das Verhältnis zwischen dieser <span class="math inline">\(H_0\)</span> und diesem Intervall schauen wir uns als Nächstes an. Vorher werfen wir noch einmal einen kurzen Blick auf <a href="#fig-stats-est-ci-05" class="quarto-xref">Abbildung&nbsp;<span>4.7</span></a>. In Schwarz ist der tatsächliche wahre Populationswert abgetragen. Wir sehen, dass in diesem Fall der wahre Wert auch innerhalb des Intervalls liegt.</p>
 <p>Schauen wir uns nun an, wie das aussieht, wenn wir das Experiment mehrmals wiederholen.</p>
 <div class="cell">
 <div class="cell-output-display">
@@ -473,19 +479,19 @@ Abbildung&nbsp;3.7: Kompatibles Intervall (grün), Populationsparameter <span cl
 <img src="stats_estimation_files/figure-html/fig-stats-est-ci-06-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-stats-est-ci-06-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Abbildung&nbsp;3.8: Simulation von <span class="math inline">\(n = 100\)</span> Intervallen.
+Abbildung&nbsp;4.8: Simulation von <span class="math inline">\(n = 100\)</span> Intervallen.
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>In <a href="#fig-stats-est-ci-06" class="quarto-xref">Abbildung&nbsp;<span>3.8</span></a> ist das Ergebnis von 100 Experimenten und den resultierenden Intervallen gezeigt. Der schwarze Strich zeigt wieder den wahren Populationswert an. Wir können erkennen, dass die Mehrheit der berechneten, kompatiblen Intervalle den wahren Wert auch tatsächlich enthält. Aber wieder Achtung: In der Realität führen wir das Experiment meistens nur einmal durch. Wenn ich jetzt die Frage stelle: <em>Was ist die Wahrscheinlichkeit, dass mein berechnetes Kompatibilitätsintervall den wahren Populationsparameter enthält?</em></p>
+<p>In <a href="#fig-stats-est-ci-06" class="quarto-xref">Abbildung&nbsp;<span>4.8</span></a> ist das Ergebnis von 100 Experimenten und den resultierenden Intervallen gezeigt. Der schwarze Strich zeigt wieder den wahren Populationswert an. Wir können erkennen, dass die Mehrheit der berechneten, kompatiblen Intervalle den wahren Wert auch tatsächlich enthält. Aber wieder Achtung: In der Realität führen wir das Experiment meistens nur einmal durch. Wenn ich jetzt die Frage stelle: <em>Was ist die Wahrscheinlichkeit, dass mein berechnetes Kompatibilitätsintervall den wahren Populationsparameter enthält?</em></p>
 <p>Nun, entweder der Wert ist in dem Intervall enthalten oder er ist nicht enthalten. Also entweder <span class="math inline">\(P(\text{enthalten}) = 0\)</span> oder <span class="math inline">\(P(\text{enthalten}) = 1\)</span>. Daher ist die Frage, mit welcher Wahrscheinlichkeit das Intervall den wahren Parameter enthält, nicht wirklich sinnvoll. Ich würde hoffen, dass ich bei meiner Durchführung des Experiments eines der grünen Intervalle habe, aber ich kann mir nicht sicher sein. Vielleicht habe ich Pech gehabt und ausgerechnet eines der roten Intervalle bekommen.</p>
 <p>Wir hatten vorhin hergeleitet, dass die Breite der Intervalle von unserem angesetzten <span class="math inline">\(\alpha\)</span> abhängt. Tatsächlich sagt dieses <span class="math inline">\(\alpha\)</span> etwas darüber aus, wie oft ich erwarten würde, bei großer (unendlicher) Wiederholung des Experiments, dass das Intervall den wahren Populationsparameter enthält. D. h., wenn ich ein <span class="math inline">\(\alpha = 0.05\)</span> ansetze, würde ich bei <span class="math inline">\(1000\)</span> Durchführungen erwarten, dass <span class="math inline">\(950\)</span> der Intervalle den wahren Populationsparameter enthalten und entsprechend <span class="math inline">\(50\)</span> Intervalle den Populationsparameter nicht enthalten. Noch einmal: Das ist eine Aussage über eine Wahrscheinlichkeit bei Wiederholung des Experiments. Eigentlich ist <span class="math inline">\(1000\)</span> auch nicht genug, sondern eher etwas in Richtung <span class="math inline">\(\displaystyle{\lim_{N \to \infty}}\)</span>.</p>
 <p>Nachdem wir jetzt lange genug um den heißen Brei herumgeredet haben: Das Intervall, das mit den Daten kompatibel ist, wird als Konfidenzintervall bezeichnet. Leider ist die Bezeichnung “Konfidenz” stark irreführend, da für Statistiker “Konfidenz” eben diese Eigenschaft bei Wiederholung des Experiments bezeichnet. In der Alltagssprache ist die Interpretation leider etwas abweichend. Die Aussage „Ich habe eine <span class="math inline">\(95\%\)</span> Konfidenz, dass das Intervall den wahren Populationsparameter enthält“ ist daher eine falsche Interpretation des Konfidenzintervalls, die oft anzutreffen ist. Korrekt ist: Wenn ich das Experiment sehr, sehr oft wiederhole, dann bin ich konfident, dass <span class="math inline">\(95\%\)</span> der Intervalle den wahren Populationsparameter enthalten. Für eine einzige Wiederholung mit eben nur einem resultierenden Konfidenzintervall ist die Wahrscheinlichkeit entweder <span class="math inline">\(1\)</span> oder <span class="math inline">\(0\)</span>. Entweder der wahre Populationsparameter ist im Konfidenzintervall enthalten oder eben nicht.</p>
 <p>Das Konfidenzintervall hat aber noch ein weiteres Merkmal. Wenn das Intervall sehr eng ist, dann ist nur eine eng umschriebene Menge von Hypothesen mit den Daten kompatibel. Andersherum, wenn das Intervall sehr breit ist, dann sind sehr unterschiedliche Hypothesen mit den Daten kompatibel. Die Breite ist dabei nicht nur vom <span class="math inline">\(\alpha\)</span>-Niveau, sondern auch von der Streuung des Standardfehlers der Stichprobenstatistik abhängig. Wenn die Streuung sehr klein ist, dann wird für gegebenes <span class="math inline">\(\alpha\)</span> das Intervall schmaler, als wenn die Streuung sehr groß ist. Daher ist das Konfidenzintervall auch ein Merkmal für die Präzision der Schätzung mittels der Daten.</p>
 <div id="def-confidence" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 3.1 (Konfidenzintervall )</strong></span> Das Konfidenzintervall wird immer für ein gegebenes <span class="math inline">\(\alpha\)</span>-Niveau berechnet. Das Konfidenzintervall gibt <strong>nicht</strong> die Wahrscheinlichkeit an, mit der ein <em>wahrer</em> Populationsparameter in dem Intervall liegt. Sondern, das Konfidenzintervall gibt alle mit den Daten <strong>kompatiblen</strong> Populationsparameter, alle kompatiblen <span class="math inline">\(H_0\)</span>-Hypothesen, an. Das <span class="math inline">\(1-\alpha\)</span>-Niveau des Konfidenzintervalls gibt an, bei welchem Anteil von Wiederholungen davon auszugehen ist, dass das Konfidenzintervall den wahren Populationsparameter enthält. Die Breite des Konfidenzintervalls kann als eine Metrik für die <strong>Präzision</strong> der Schätzung angesehen werden.</p>
+<p><span class="theorem-title"><strong>Definition 4.1 (Konfidenzintervall )</strong></span> Das Konfidenzintervall wird immer für ein gegebenes <span class="math inline">\(\alpha\)</span>-Niveau berechnet. Das Konfidenzintervall gibt <strong>nicht</strong> die Wahrscheinlichkeit an, mit der ein <em>wahrer</em> Populationsparameter in dem Intervall liegt. Sondern, das Konfidenzintervall gibt alle mit den Daten <strong>kompatiblen</strong> Populationsparameter, alle kompatiblen <span class="math inline">\(H_0\)</span>-Hypothesen, an. Das <span class="math inline">\(1-\alpha\)</span>-Niveau des Konfidenzintervalls gibt an, bei welchem Anteil von Wiederholungen davon auszugehen ist, dass das Konfidenzintervall den wahren Populationsparameter enthält. Die Breite des Konfidenzintervalls kann als eine Metrik für die <strong>Präzision</strong> der Schätzung angesehen werden.</p>
 </div>
 <p>Eine schöne Zusammenfassung zum Konfidenzintervall ist aus <span class="citation" data-cites="spiegelhalter2019">Spiegelhalter (<a href="references.html#ref-spiegelhalter2019" role="doc-biblioref">2019, p.241</a>)</span></p>
 <ol type="1">
@@ -500,26 +506,26 @@ Abbildung&nbsp;3.8: Simulation von <span class="math inline">\(n = 100\)</span> 
 \textrm{CI}_{1-\alpha} = \text{statistik} \pm q_{\alpha/2} \times s_e
 \label{eqn-stats-estim-ci-calc}
 \end{equation}\]</span></p>
-<p>Das Intervall ist immer eine Kombination aus einem berechneten Wert, der Statistik, beispielsweise dem Mittelwert <span class="math inline">\(\bar{x}\)</span>, den zum <span class="math inline">\(\alpha\)</span>-Niveau gehörenden Quantilen <span class="math inline">\(q_{\alpha/2}\)</span>, oftmals den Quantilen der Standardnormalverteilung <span class="math inline">\(\Phi(z)\)</span>, also <span class="math inline">\(z_{\alpha/2}\)</span>, multipliziert mit dem Standardfehler <span class="math inline">\(s_e\)</span> der betrachteten Statistik. Unglücklicherweise, wenn dieses Intervall als Zufallszahl vor dem Experiment bestimmt wird, dann ist es tatsächlich eine Wahrscheinlichkeitsaussage. Aber wenn wir eine Realisierung der beteiligten Zufallszahlen, in diesem Fall der Intervallgrenzen, beobachtet haben, dann ist keine Aussage über die Wahrscheinlichkeit mehr sinnvoll, wie wir in <a href="#fig-stats-est-ci-06" class="quarto-xref">Abbildung&nbsp;<span>3.8</span></a> gesehen haben.</p>
+<p>Das Intervall ist immer eine Kombination aus einem berechneten Wert, der Statistik, beispielsweise dem Mittelwert <span class="math inline">\(\bar{x}\)</span>, den zum <span class="math inline">\(\alpha\)</span>-Niveau gehörenden Quantilen <span class="math inline">\(q_{\alpha/2}\)</span>, oftmals den Quantilen der Standardnormalverteilung <span class="math inline">\(\Phi(z)\)</span>, also <span class="math inline">\(z_{\alpha/2}\)</span>, multipliziert mit dem Standardfehler <span class="math inline">\(s_e\)</span> der betrachteten Statistik. Unglücklicherweise, wenn dieses Intervall als Zufallszahl vor dem Experiment bestimmt wird, dann ist es tatsächlich eine Wahrscheinlichkeitsaussage. Aber wenn wir eine Realisierung der beteiligten Zufallszahlen, in diesem Fall der Intervallgrenzen, beobachtet haben, dann ist keine Aussage über die Wahrscheinlichkeit mehr sinnvoll, wie wir in <a href="#fig-stats-est-ci-06" class="quarto-xref">Abbildung&nbsp;<span>4.8</span></a> gesehen haben.</p>
 <div id="exm-ci-calc" class="theorem example">
-<p><span class="theorem-title"><strong>Beispiel 3.2</strong></span> Sei zum Beispiel die Statistik des Stichprobenmittelwerts der Körpergröße aus einer Stichprobe aus der Normalbevölkerung <span class="math inline">\(\bar{x}\)</span>. Aus der Literatur können wir für die Bevölkerung eine Standardabweichung von <span class="math inline">\(\sigma = 6\)</span> herleiten. Dadurch ergibt sich ein Standardfehler von <span class="math inline">\(s_e = \frac{\sigma}{\sqrt{N}} = \frac{6}{\sqrt{9}} = \frac{6}{3} = 2\)</span>. Wir beobachten nun in unserer Stichprobe von <span class="math inline">\(N = 9\)</span> einen Mittelwert von <span class="math inline">\(\bar{x} = 170\)</span> cm. Für die Quantile bei <span class="math inline">\(\alpha = 0.05\)</span> können wir die Standardnormalverteilung <span class="math inline">\(\Phi(Z)\)</span> heranziehen und erhalten für die Quantile <span class="math inline">\(q_{\alpha/2} = q_{0.025} = -1.96\)</span>. Daraus folgt nach Formel <span class="math inline">\(\eqref{eqn-stats-estim-ci-calc}\)</span> für das Konfidenzintervall:</p>
+<p><span class="theorem-title"><strong>Beispiel 4.2</strong></span> Sei zum Beispiel die Statistik des Stichprobenmittelwerts der Körpergröße aus einer Stichprobe aus der Normalbevölkerung <span class="math inline">\(\bar{x}\)</span>. Aus der Literatur können wir für die Bevölkerung eine Standardabweichung von <span class="math inline">\(\sigma = 6\)</span> herleiten. Dadurch ergibt sich ein Standardfehler von <span class="math inline">\(s_e = \frac{\sigma}{\sqrt{N}} = \frac{6}{\sqrt{9}} = \frac{6}{3} = 2\)</span>. Wir beobachten nun in unserer Stichprobe von <span class="math inline">\(N = 9\)</span> einen Mittelwert von <span class="math inline">\(\bar{x} = 170\)</span> cm. Für die Quantile bei <span class="math inline">\(\alpha = 0.05\)</span> können wir die Standardnormalverteilung <span class="math inline">\(\Phi(Z)\)</span> heranziehen und erhalten für die Quantile <span class="math inline">\(q_{\alpha/2} = q_{0.025} = -1.96\)</span>. Daraus folgt nach Formel <span class="math inline">\(\eqref{eqn-stats-estim-ci-calc}\)</span> für das Konfidenzintervall:</p>
 <p><span class="math display">\[\begin{equation*}
 95\%CI = 170 \pm 1.96 \cdot 2 = [166.08, 173.92]\text{ cm}
 \end{equation*}\]</span></p>
 </div>
 <div id="exm-ci-calc-2" class="theorem example">
-<p><span class="theorem-title"><strong>Beispiel 3.3</strong></span> Hätten wir im vorhergehenden Beispiel keine Information über die Standardabweichung <span class="math inline">\(\sigma\)</span> in der Population gehabt, dann müssten wir die Standardabweichung anhand der Stichprobe abschätzen. In diesem Fall müsste diese zusätzliche Unsicherheit berücksichtigt werden, indem anstatt der Standardnormalverteilung <span class="math inline">\(\Phi(z)\)</span> die <span class="math inline">\(t\)</span>-Verteilung verwendet wird. Hier würde sich dann ein Quantil von <span class="math inline">\(q_{8,0.025} = -2.3\)</span> ergeben. D. h., wir würden ein breiteres Konfidenzintervall erhalten. Sei beispielsweise die Standardabweichung <span class="math inline">\(s\)</span> in der Stichprobe <span class="math inline">\(s = 6.3\)</span>. Dann würden wir das folgende Konfidenzintervall erhalten:</p>
+<p><span class="theorem-title"><strong>Beispiel 4.3</strong></span> Hätten wir im vorhergehenden Beispiel keine Information über die Standardabweichung <span class="math inline">\(\sigma\)</span> in der Population gehabt, dann müssten wir die Standardabweichung anhand der Stichprobe abschätzen. In diesem Fall müsste diese zusätzliche Unsicherheit berücksichtigt werden, indem anstatt der Standardnormalverteilung <span class="math inline">\(\Phi(z)\)</span> die <span class="math inline">\(t\)</span>-Verteilung verwendet wird. Hier würde sich dann ein Quantil von <span class="math inline">\(q_{8,0.025} = -2.3\)</span> ergeben. D. h., wir würden ein breiteres Konfidenzintervall erhalten. Sei beispielsweise die Standardabweichung <span class="math inline">\(s\)</span> in der Stichprobe <span class="math inline">\(s = 6.3\)</span>. Dann würden wir das folgende Konfidenzintervall erhalten:</p>
 <p><span class="math display">\[\begin{equation*}
 95\%CI = 170 \pm 2.3 \cdot 2.2 = [164.9, 175.1]\text{ cm}
 \end{equation*}\]</span></p>
 </div>
 <div id="exm-ci-calc-3" class="theorem example">
-<p><span class="theorem-title"><strong>Beispiel 3.4</strong></span> In <span class="citation" data-cites="grant1996">Grant u.&nbsp;a. (<a href="references.html#ref-grant1996" role="doc-biblioref">1996</a>)</span> ist die Handkraft von <span class="math inline">\(N=10\)</span> Elite Kletterer der dominanten Hand in Newton <span class="math inline">\(N\)</span> ermittelt. Dabei wurden die folgenden Werte ermittelt worden (siehe <a href="#tbl-stats-est-ci-climb" class="quarto-xref">Tabelle&nbsp;<span>3.2</span></a>).</p>
+<p><span class="theorem-title"><strong>Beispiel 4.4</strong></span> In <span class="citation" data-cites="grant1996">Grant u.&nbsp;a. (<a href="references.html#ref-grant1996" role="doc-biblioref">1996</a>)</span> ist die Handkraft von <span class="math inline">\(N=10\)</span> Elite Kletterer der dominanten Hand in Newton <span class="math inline">\(N\)</span> ermittelt. Dabei wurden die folgenden Werte ermittelt worden (siehe <a href="#tbl-stats-est-ci-climb" class="quarto-xref">Tabelle&nbsp;<span>4.2</span></a>).</p>
 <div class="cell">
 <div id="tbl-stats-est-ci-climb" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-stats-est-ci-climb-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabelle&nbsp;3.2: Deskriptive Werte der Kletterdaten.
+Tabelle&nbsp;4.2: Deskriptive Werte der Kletterdaten.
 </figcaption>
 <div aria-describedby="tbl-stats-est-ci-climb-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
@@ -557,12 +563,12 @@ Tabelle&nbsp;3.2: Deskriptive Werte der Kletterdaten.
 </div>
 </div>
 <div id="exm-ci-calc-4" class="theorem example">
-<p><span class="theorem-title"><strong>Beispiel 3.5</strong></span> Bezogen auf das Eingangsbeispiel mit den beiden Arbeitsgruppen “Glück” und “Pech” lässt sich für die beiden Konfidenzintervalle ergeben sich die beiden folgenden Konfidenzintervalle:</p>
+<p><span class="theorem-title"><strong>Beispiel 4.5</strong></span> Bezogen auf das Eingangsbeispiel mit den beiden Arbeitsgruppen “Glück” und “Pech” lässt sich für die beiden Konfidenzintervalle ergeben sich die beiden folgenden Konfidenzintervalle:</p>
 <p><span class="math display">\[\begin{align*}
 CI_\text{Glücklich} &amp;= 3.61 \pm 2.02 \cdot 1.48 = [0.62,6.6] \\
 CI_\text{Pech} &amp;= 2.23 \pm 2.03 \cdot 1.49 = [-0.79,5.25] \\
 \end{align*}\]</span></p>
-<p>Hier ist zusehen, das das Konfidenzintervall für die Gruppe “Glücklich” die <span class="math inline">\(H_0: \Delta=0\)</span> nicht enthält, während dies für die Gruppe “Pech” der Fall ist. Aber selbst für die Gruppe “Pech” liegt ein großer Teil des Intervalls im positiven Bereich und somit nicht im direkten Widerspruch zu dem Befund von Gruppe “Glücklich” (siehe auch <a href="#fig-stats-estci-04" class="quarto-xref">Abbildung&nbsp;<span>3.9</span></a>).</p>
+<p>Hier ist zusehen, das das Konfidenzintervall für die Gruppe “Glücklich” die <span class="math inline">\(H_0: \Delta=0\)</span> nicht enthält, während dies für die Gruppe “Pech” der Fall ist. Aber selbst für die Gruppe “Pech” liegt ein großer Teil des Intervalls im positiven Bereich und somit nicht im direkten Widerspruch zu dem Befund von Gruppe “Glücklich” (siehe auch <a href="#fig-stats-estci-04" class="quarto-xref">Abbildung&nbsp;<span>4.9</span></a>).</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-stats-estci-04" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -571,7 +577,7 @@ CI_\text{Pech} &amp;= 2.23 \pm 2.03 \cdot 1.49 = [-0.79,5.25] \\
 <img src="stats_estimation_files/figure-html/fig-stats-estci-04-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-stats-estci-04-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Abbildung&nbsp;3.9: Konfidenzintervalle für die Gruppendifferenzen der beiden Forschergruppen
+Abbildung&nbsp;4.9: Konfidenzintervalle für die Gruppendifferenzen der beiden Forschergruppen
 </figcaption>
 </figure>
 </div>
@@ -596,11 +602,11 @@ Tipp
 </div>
 </div>
 </section>
-<section id="dualität-von-signifikanztests-und-konfidenzintervall" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="dualität-von-signifikanztests-und-konfidenzintervall"><span class="header-section-number">3.2</span> Dualität von Signifikanztests und Konfidenzintervall</h2>
+<section id="dualität-von-signifikanztests-und-konfidenzintervall" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="dualität-von-signifikanztests-und-konfidenzintervall"><span class="header-section-number">4.2</span> Dualität von Signifikanztests und Konfidenzintervall</h2>
 <p>Als letzten, vorläufigen Punkt zu Konfidenzintervallen noch ein Abschnitt zum Verhältnis von Konfidenzintervallen und Signifikanztests. Wenn das Konfidenzintervall mit Niveau <span class="math inline">\(1-\alpha\%\)</span> die <span class="math inline">\(H_0\)</span> nicht beinhaltet, dann bedeutet dies nach unserer Herleitung, dass diese Hypothese nicht mit den beobachteten Daten kompatibel ist. D. h., bei einem Signifikanztest wird die <span class="math inline">\(H_0\)</span> bei einer Irrtumswahrscheinlichkeit von <span class="math inline">\(\alpha\)</span> abgelehnt. Wenn ich also das Konfidenzintervall und die getestete <span class="math inline">\(H_0\)</span> kenne, dann kann ich eine Aussage darüber machen, ob das Ergebnis statistisch signifikant ist oder nicht. Andersherum, wenn ich weiß, dass das Ergebnis statistisch signifikant war oder eben nicht, dann weiß ich auch, ob die <span class="math inline">\(H_0\)</span> im Konfidenzintervall ist oder nicht. Es besteht eine Dualität zwischen beiden Konzepten, wobei mir das Konfidenzintervall deutlich mehr Informationen als der reine Signifikanztest gibt.</p>
 <div id="exm-ci-02" class="theorem example">
-<p><span class="theorem-title"><strong>Beispiel 3.6</strong></span> In <a href="#fig-stats-estimate-ci-dual" class="quarto-xref">Abbildung&nbsp;<span>3.10</span></a> ist ein Beispiel abgetragen für ein hypothetisches Konfidenzintervall und der Wert der <span class="math inline">\(H_0\)</span>-Hypothese.</p>
+<p><span class="theorem-title"><strong>Beispiel 4.6</strong></span> In <a href="#fig-stats-estimate-ci-dual" class="quarto-xref">Abbildung&nbsp;<span>4.10</span></a> ist ein Beispiel abgetragen für ein hypothetisches Konfidenzintervall und der Wert der <span class="math inline">\(H_0\)</span>-Hypothese.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-stats-estimate-ci-dual" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -609,7 +615,7 @@ Tipp
 <img src="stats_estimation_files/figure-html/fig-stats-estimate-ci-dual-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-stats-estimate-ci-dual-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Abbildung&nbsp;3.10: Der erwartete Wert unter der <span class="math inline">\(H_0\)</span> (rot) und das beobachtete Konfidenzintervall zur beobachteten Statistik <span class="math inline">\(D\)</span>.
+Abbildung&nbsp;4.10: Der erwartete Wert unter der <span class="math inline">\(H_0\)</span> (rot) und das beobachtete Konfidenzintervall zur beobachteten Statistik <span class="math inline">\(D\)</span>.
 </figcaption>
 </figure>
 </div>
@@ -618,15 +624,15 @@ Abbildung&nbsp;3.10: Der erwartete Wert unter der <span class="math inline">\(H_
 <p>Da die <span class="math inline">\(H_0\)</span>-Hypothese nicht im Konfidenzintervall enthalten ist, können wir herleiten, dass ein statistisch signifikantes Ergebnis erzielt wurde.</p>
 </div>
 </section>
-<section id="die-fisher-vs.-neyman-pearson-kontroverse" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="die-fisher-vs.-neyman-pearson-kontroverse"><span class="header-section-number">3.3</span> Die Fisher vs.&nbsp;Neyman-Pearson Kontroverse</h2>
+<section id="die-fisher-vs.-neyman-pearson-kontroverse" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="die-fisher-vs.-neyman-pearson-kontroverse"><span class="header-section-number">4.3</span> Die Fisher vs.&nbsp;Neyman-Pearson Kontroverse</h2>
 <p>Damit sind jetzt die wichtigsten Komponenten von statistischen Analysen, zumindest so wie sie in den meisten Fällen in der Literatur angewendet werden, erarbeitet. Hypothesentestung, p-Werte, Konfidenzintervalle, Typ-I und Typ-II Fehler und Konfidenzintervalle. Tatsächlich sind diese verschiedenen Konzepte einer Mischung aus zwei Ansätzen die im Laufe der Zeit miteinander verschmolzen wurden und zum Teil auf widersprüchlichen Ansätzen beruhen. Ein Großteil der in der Statistik verwendet Methoden geht auf die Arbeiten von Ronald A. Fisher (1890-1962) zurück. Unter Fishers statistschen System war die Nullhypothese <span class="math inline">\(H_0\)</span> zentral und die Ablehnung derer basierend auf dem dazugehörenden p-Wert. Aus Fishers Ansatz erfolgte auch die Konzepte der <span class="math inline">\(H_0\)</span> Hypothese als diejenige unter der <em>nichts</em> passiert. Der p-Wert ist dabei eine Funktion eines <em>einzelnen</em> Datensatzes. Unter Fisher waren die Konzepte Typ-I und Typ-II Fehler nicht vorhanden. Dieser Ansatz wurde unter dem Begriff <em>inductive inference</em> zusammengefasst (<span class="citation" data-cites="fisher1935">Fisher (<a href="references.html#ref-fisher1935" role="doc-biblioref">1935</a>)</span>). Zu diesem Zweck wird eine <span class="math inline">\(H_0\)</span>-Hypothese aufgestellt und diese wird anhand der Daten mittels des p-Werts beurteilt. Der p-Wert wird unter Fisher als mögliche Evidence gegen die <span class="math inline">\(H_0\)</span> Hypothese angesehen. D.h. wenn ein sehr <em>kleiner</em> p-Wert beobachtet wird, wird dies als Evidenz gegen die Annahme der <span class="math inline">\(H_0\)</span> betrachtet. Allerdings hat sich Fisher gegen die <em>Annahme</em> der <span class="math inline">\(H_0\)</span> ausgesprochen, sondern fehlende Evidenz als nicht Ausreichend um die <span class="math inline">\(H_0\)</span> abzulehnen, also provisorisch beizubehalten [loucca2008, S.20]. Aus Fishers inductive inference kommt auch die Begrifflichkeit der <em>Signifikanz</em>. Induktiv deswegen, weil von den Daten auf die Allgemeinheit geschlossen wird und dieser Schritt ist immer mit Unsicherheit behaftet.</p>
 <p>Dem Gegenüber steht der Ansatz mit einer Nullhypothese <span class="math inline">\(H_0\)</span> und einer Altervativhypothese <span class="math inline">\(H_1\)</span> der den Arbeiten der Statistiker Jerzy Neyman (1894-1981) und Egon S. Pearson (1895-1980) beruht. Unter diesem System ist die Minimierung eines Entscheidungsfehler bei Wiederholung des Experiments die zentrale Kernidee. Wie können Entscheidungen getroffen werden die im Mittel die Anzahl der fehlerhaften Entscheidungen bei wiederholter Durchführung des Experiments minimieren? Aus diesem Ansatz haben Pearson-Neyman die Konzepte Typ-I und Typ-II Fehler, Power und Konfidenzintervalle entwickelt <span class="citation" data-cites="neyman1935 lehmann1993">(<a href="references.html#ref-neyman1935" role="doc-biblioref">Neyman 1935</a>; <a href="references.html#ref-lehmann1993" role="doc-biblioref">Lehmann 1993</a>)</span>. Unter diesem System hat der p-Wert keine ausgezeichnete Bedeutung. Zentrall ist die Entscheidung die <span class="math inline">\(H_0\)</span> anzunehmen bzw. die <span class="math inline">\(H_0\)</span> abzulehnen um über <strong>viele Wiederholungen des Experiments</strong> hinweg optimale Entscheidungen zu treffen. Optimale Entscheidungen bedeutet möglichst wenige falsche Entscheidungen zu treffen. Der Hintergrund vor dem Neyman und Pearson die Theorie entwickelt haben, ist stärker durch einen industriellen Kontext geprägt um zum Beispiel bei einem Fließband sicher zu stellen, dass die Qualität der Produkte einem bestimmten Standard entspricht. In diesem Zusammenhang ist die <em>Wiederholung</em> von Experimenten, die zufällige Auswahl von Objekten, dementsprechend einfacher nachvollziehbar. Unter dem System von Pearson-Neyman ist die Durchführung eines Experiments dabei ohne die explizite Berechnung der Power und folglich der expliziten Aufstellung einer <span class="math inline">\(H_1\)</span> Hypothese bedeutungslos. Auch erklärt sich hier die Interpretation von Konfidenzintervallen als eine Überdeckungswahrscheinlichkeit bei Wiederholung des Experiments. Pearson-Neyman haben diesen Ansatz unter dem Begriff <em>inductive behavior</em> zusammengefasst. Das konkrete Niveau der Signifikanz, der p-Wert, ist weniger von Bedeutung, sondern nur welche Entscheidung getroffen wird und wie die Anzahl der Fehlentscheidungen minimiert werden können.</p>
 <p>D.h. unter Fisher ist die Begriffe der Evidenz und der damit verbundene <strong>p-Wert</strong> und der <strong>Signifikanz</strong>test zentral. Dagegen sind unter Neyman-Pearson die Konzepte Fehler, <span class="math inline">\(\alpha\)</span> bzw. <span class="math inline">\(\beta\)</span>, und <strong>Hypothesen</strong>test zentral. Damit verbunden ist auch beispielsweise, das das Konzept der Power unter Fischers Signifikanztest keine Rolle spielt, da keine <span class="math inline">\(H_1\)</span> vorhanden ist. Es lässt sich zeigen, dass diese beiden Ansätze auf Basis der gleichen Daten zu unterschiedlichen Aussagen kommen können, d.h. im Widerspruch zueinander stehen (<span class="citation" data-cites="berger2003">Berger (<a href="references.html#ref-berger2003" role="doc-biblioref">2003</a>)</span>, <span class="citation" data-cites="lehmann1993">Lehmann (<a href="references.html#ref-lehmann1993" role="doc-biblioref">1993</a>)</span>). Die Unterschiede in der Auffassung wie Daten statistisch bewertet werden sollen, hat zu einer regelrechten Fehde vor allem zwischen Fisher und Pearson geführt (<span class="citation" data-cites="neyman1956">Neyman (<a href="references.html#ref-neyman1956" role="doc-biblioref">1956</a>)</span>, <span class="citation" data-cites="loucca2008">Louçã (<a href="references.html#ref-loucca2008" role="doc-biblioref">2008</a>)</span>). Unglücklicherweise sind im Laufe der Jahre die beiden Ansätze bei Anwendern der Statistik immer mehr verschmolzen und haben dazu geführt, dass ein Großteil der wissenschaftlichen Analysen mit einem in sich widersprüchlichen statistischen System durchgeführt wird (<span class="citation" data-cites="hubbard2003">Hubbard und Bayarri (<a href="references.html#ref-hubbard2003" role="doc-biblioref">2003</a>)</span>, <span class="citation" data-cites="hager2013">Hager (<a href="references.html#ref-hager2013" role="doc-biblioref">2013</a>)</span>, <span class="citation" data-cites="gigerenzer2004">Gigerenzer (<a href="references.html#ref-gigerenzer2004" role="doc-biblioref">2004</a>)</span>, <span class="citation" data-cites="nuzzo2014">Nuzzo (<a href="references.html#ref-nuzzo2014" role="doc-biblioref">2014</a>)</span>). Ironischerweise sind beide Seiten sich einig darüber gewesen, dass das Signifikanzlevel bzw. der Fehlerlevel mit <span class="math inline">\(5\)</span>% nicht sakrosankt sein ist, sondern entsprechend der Fragestellung angepasst werden sollte (<span class="citation" data-cites="lehmann1993">Lehmann (<a href="references.html#ref-lehmann1993" role="doc-biblioref">1993</a>)</span>). Beide Ansätze haben zudem zwei Abstrahierungen in die statistische Analyse die sich nicht mit der Realität überein bringen lassen. Aus Fishers Ansatz ist dies das Konzept einer unendlich großen Population aus der Stichproben gezogen werden, während bei Neyman-Pearson die (unendlich oft) wiederholte Testung benötigt wird.</p>
 <p>Die Verschmelzung der beiden Konzepte hat auch dazu geführt, dass der p-Wert und das <span class="math inline">\(\alpha\)</span>-Level miteinander vermischt werden. Der p-Wert ist eine Aussage über die Daten unter der Annahme der <span class="math inline">\(H_0\)</span>. Das <span class="math inline">\(\alpha\)</span>-Level ist dagegen eine Aussage über die Fehlerrate über viele Experimente hinweg. Bei einem einzelnen Experiment wird entweder ein Fehler oder eben nicht gemacht. Ein p-Wert von <span class="math inline">\(p = 0.03\)</span> ist daher keine Aussage über Fehlerrate, sondern eine Aussage darüber mit welcher Wahrscheinlichkeit ein beobachteter oder ein extremerer Wert unter einer angenommenen <span class="math inline">\(H_0\)</span> auftritt. In dieser Aussage taucht das Konzept eines Fehlers nicht auf. Tatsächlich ist die Missinterpretation nicht nur unter AnwenderInnen sondern auch unter StatistikerInnen weit verbreitet (<span class="citation" data-cites="hubbard2003">Hubbard und Bayarri (<a href="references.html#ref-hubbard2003" role="doc-biblioref">2003</a>)</span>). Allerdings sollte auch erwähnt werden, dass die Ansicht, dass die beiden Systeme nicht miteinander vereinbar sind nicht von allen geteilt wird <span class="citation" data-cites="mayo2018">(vgl. <a href="references.html#ref-mayo2018" role="doc-biblioref">Mayo 2018, 173ff</a>)</span></p>
 </section>
-<section id="things-to-know" class="level2" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="things-to-know"><span class="header-section-number">3.4</span> Things to know</h2>
+<section id="things-to-know" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="things-to-know"><span class="header-section-number">4.4</span> Things to know</h2>
 <ul>
 <li>Konfidenzintervall</li>
 <li>Dualität von Konfidenzintervall und Hypothesentest</li>
@@ -634,8 +640,8 @@ Abbildung&nbsp;3.10: Der erwartete Wert unter der <span class="math inline">\(H_
 <li>Unterschied zwischen Signifikanztest und Hypothesentest</li>
 </ul>
 </section>
-<section id="zum-nach--und-weiterlesen" class="level2" data-number="3.5">
-<h2 data-number="3.5" class="anchored" data-anchor-id="zum-nach--und-weiterlesen"><span class="header-section-number">3.5</span> Zum Nach- und Weiterlesen</h2>
+<section id="zum-nach--und-weiterlesen" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="zum-nach--und-weiterlesen"><span class="header-section-number">4.5</span> Zum Nach- und Weiterlesen</h2>
 <p>Hier sind Artikel <span class="citation" data-cites="hoekstra2014">Hoekstra u.&nbsp;a. (<a href="references.html#ref-hoekstra2014" role="doc-biblioref">2014</a>)</span> und <span class="citation" data-cites="greenland2016">Greenland u.&nbsp;a. (<a href="references.html#ref-greenland2016" role="doc-biblioref">2016</a>)</span> die sich mit den wiederkehrenden Problem bei der Interpretation von Konfidenzintervallen beschäftigen.</p>
 
 
@@ -777,6 +783,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -887,6 +895,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
+      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {
@@ -1114,13 +1123,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./stats_significance.html" class="pagination-link" aria-label="Statistische Signifikanz, p-Wert und Power">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Statistische Signifikanz, p-Wert und Power</span></span>
+      <a href="./stats_errorprobability.html" class="pagination-link" aria-label="Irrtumswahrscheinlichkeit">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Irrtumswahrscheinlichkeit</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./stats_ttest.html" class="pagination-link" aria-label="Der t-Test">
-        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Der t-Test</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Der t-Test</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

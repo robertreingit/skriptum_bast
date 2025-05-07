@@ -10,6 +10,7 @@ book:
     - index.qmd
     - stats_basics.qmd
     - stats_significance.qmd
+    - stats_errorprobability.qmd
     - stats_estimation.qmd
     - stats_ttest.qmd
     - stats_anova.qmd
