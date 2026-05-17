@@ -12,6 +12,7 @@ book:
     - stats_significance.qmd
     - stats_errorprobability.qmd
     - stats_estimation.qmd
+    - stats_ztest.qmd
     - stats_ttest.qmd
     - stats_anova.qmd
     - stats_correlation.qmd

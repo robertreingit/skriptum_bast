@@ -8,3 +8,6 @@
 docs/search.json
 _book/
 _freeze
+.positai
+
+**/*.quarto_ipynb
