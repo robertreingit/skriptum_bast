@@ -246,6 +246,7 @@ window.Quarto = {
   </ul></li>
   <li><a href="#der-z-test" id="toc-der-z-test" class="nav-link" data-scroll-target="#der-z-test"><span class="header-section-number">5.2</span> Der z-Test</a></li>
   <li><a href="#der-einstichproben-t-test" id="toc-der-einstichproben-t-test" class="nav-link" data-scroll-target="#der-einstichproben-t-test"><span class="header-section-number">5.3</span> Der Einstichproben t-Test</a></li>
+  <li><a href="#zusammenfassung" id="toc-zusammenfassung" class="nav-link" data-scroll-target="#zusammenfassung"><span class="header-section-number">5.4</span> Zusammenfassung</a></li>
   </ul>
 </nav>
     </div>
@@ -274,7 +275,7 @@ window.Quarto = {
 <p>Einer der am einfachsten nachzuvollziehenden statistischen Tests ist der z-Test der auch als Einstichprobentest bezeichnet wird. Der z-Test beruht auf einem Vergleich des beobachteten Werts mit der Standardnormalverteilung <span class="math inline">\(\Phi(z)\)</span>, also der Normalverteilung mit Mittelwert <span class="math inline">\(\mu=0\)</span> und Standardabweichung <span class="math inline">\(\sigma=1\)</span>. Um die Idee des z-Tests nachzuvollziehen muss zunächst das Konzept eines <strong>z-Werts</strong> eingeführt werden.</p>
 <section id="der-z-wert" class="level2" data-number="5.1">
 <h2 data-number="5.1" class="anchored" data-anchor-id="der-z-wert"><span class="header-section-number">5.1</span> Der z-Wert</h2>
-<p>Wie bereits eingeführt kann die Form der Normalverteilung mittels des Mittelwerts <span class="math inline">\(\mu\)</span> und der Standardabweichung <span class="math inline">\(\sigma\)</span> verändert werden. Die mathematische Form der Normalverteilung ist wie folgt:</p>
+<p>Wie bereits besprochen, kann die Form der Normalverteilung mittels des Mittelwerts <span class="math inline">\(\mu\)</span> und der Standardabweichung <span class="math inline">\(\sigma\)</span> verändert werden. Die mathematische Form der Normalverteilung ist wie folgt:</p>
 <p><span id="eq-ztest-normal-dist"><span class="math display">\[
 f(x|\mu,\sigma^2) = \frac{1}{\sqrt{2 \pi \sigma^2}}e^{\left(-\frac{(x-\mu)^2}{2\sigma^2}\right)}
 \tag{5.1}\]</span></span></p>
@@ -293,7 +294,7 @@ Abbildung&nbsp;5.1: Dichtefunktion der Normalverteilung für gegebene <span clas
 </div>
 </div>
 </div>
-<p>Anhand der Standardabweichung kann die Verteilung in Bereiche eingeteilt werden. Und zwar in die Bereiche <span class="math inline">\([\mu-\sigma,\mu+\sigma]\)</span>, <span class="math inline">\([\mu-2\cdot\sigma,\mu+2\cdot\sigma]\)</span> und <span class="math inline">\([\mu-3\cdot\sigma,\mu+3\cdot\sigma]\)</span>. D.h. es wird jeweils ausgehend vom Mittelwert <span class="math inline">\(\mu\)</span> ein Bereich oberhalb und unterhalb mittels Multiplikation mit der Standardabweichung <span class="math inline">\(\sigma\)</span> ausgezeichnet (siehe <a href="#fig-ztest-dnorm-02" class="quarto-xref">Abbildung&nbsp;<span>5.2</span></a>).</p>
+<p>Die Verteilung kann nun anhand der Standardabweichung <span class="math inline">\(\sigma\)</span> in verschiedene Bereiche eingeteilt werden in denen Werte mit unterschiedlichen Wahrscheinlichkeiten auftreten. So können die Bereiche <span class="math inline">\([\mu-\sigma,\mu+\sigma]\)</span>, <span class="math inline">\([\mu-2\cdot\sigma,\mu+2\cdot\sigma]\)</span> und <span class="math inline">\([\mu-3\cdot\sigma,\mu+3\cdot\sigma]\)</span> beispielsweise unterschieden werden. D.h. es wird jeweils ausgehend vom Mittelwert <span class="math inline">\(\mu\)</span> ein Bereich oberhalb und unterhalb mittels Multiplikation mit der Standardabweichung <span class="math inline">\(\sigma\)</span> ausgezeichnet (siehe <a href="#fig-ztest-dnorm-02" class="quarto-xref">Abbildung&nbsp;<span>5.2</span></a>).</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-ztest-dnorm-02" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -308,7 +309,7 @@ Abbildung&nbsp;5.2: Dichtefunktion von <span class="math inline">\(\mathcal{N}(\
 </div>
 </div>
 </div>
-<p>Diese Bereiche haben jeweils ein bestimmte Wahrscheinlichkeit (siehe <a href="#tbl-ztest-dnorm" class="quarto-xref">Tabelle&nbsp;<span>5.1</span></a>).</p>
+<p>Da diese Bereiche unterschiedliche Flächen auszeichnen, haben diese Bereiche jeweils ein bestimmte Wahrscheinlichkeit (siehe <a href="#tbl-ztest-dnorm" class="quarto-xref">Tabelle&nbsp;<span>5.1</span></a>) und es ergibt sich die folgende Tabelle.</p>
 <div id="tbl-ztest-dnorm" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-ztest-dnorm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -340,12 +341,12 @@ Tabelle&nbsp;5.1: Bereiche der Normalverteilung
 </div>
 </figure>
 </div>
-<p>D.h., wenn eine Statistik einer Normalverteilung folgt, dann ist die Wahrscheinlichkeit, dass der Wert innerhalb des Bereiches <span class="math inline">\(\pm \sigma\)</span> vom Mittelwert <span class="math inline">\(\mu\)</span> fällt etwas <span class="math inline">\(68\%\)</span>. Die Wahrscheinlickeiten sind nicht exakt, aber können in vielen Fällen als einfache <em>Daumenregeln</em> verwendet werden.</p>
-<p>Nun ist es manchmal etwas müßig die Bereiche immer auszurechnen und es wäre einfacher wenn eine Normalverteilung verwendet würde bei der diese Bereich <em>direkt</em> ablesbar sind. Die Normalverteilung die dies erfüllt ist die Standardnormalverteilung.</p>
+<p>D.h., wenn eine Statistik einer Normalverteilung folgt, dann ist die Wahrscheinlichkeit, dass der Wert innerhalb des Bereiches <span class="math inline">\(\pm \sigma\)</span> um den Mittelwert <span class="math inline">\(\mu\)</span> herum fällt etwa <span class="math inline">\(68\%\)</span>. Die Wahrscheinlickeiten sind nicht exakt, aber können in vielen Fällen als einfache <em>Daumenregeln</em> verwendet werden.</p>
+<p>Nun ist es manchmal etwas müßig die Bereiche immer auszurechnen und es wäre einfacher wenn eine Normalverteilung verwendet würde bei der die Bereiche <em>direkt</em> ablesbar sind. Diejenige Normalverteilung die dies erfüllt ist die Standardnormalverteilung.</p>
 <div id="def-standard-normal" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 5.1 (Standardnormalverteilung <span class="math inline">\(\Phi(z)\)</span>)</strong></span> Die Standardnormalverteilung ist die Normalverteilung mit Mittelwert <span class="math inline">\(\mu=0\)</span> und Standardabweichung <span class="math inline">\(\sigma=1\)</span>.</p>
 </div>
-<p>Die Standardnormalverteilung hat auch eine zentrale Rolle in der theoretischen Statistik, so dass sie ein eigenes Simbol <span class="math inline">\(\Phi\)</span> spendiert bekommen hat. In <a href="#fig-ztest-stdnorm-01" class="quarto-xref">Abbildung&nbsp;<span>5.3</span></a> ist die Dichtekurve der Standardnormalverteilung abgetragen.</p>
+<p>Die Standardnormalverteilung hat auch eine zentrale Rolle in der theoretischen Statistik, so dass sie ein eigenes Symbol <span class="math inline">\(\Phi\)</span> spendiert bekommen hat. In <a href="#fig-ztest-stdnorm-01" class="quarto-xref">Abbildung&nbsp;<span>5.3</span></a> ist die Dichtekurve der Standardnormalverteilung abgetragen.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-ztest-stdnorm-01" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -360,16 +361,30 @@ Abbildung&nbsp;5.3: Dichtefunktion der Standardnormalverteilung <span class="mat
 </div>
 </div>
 </div>
-<p>Sieht nicht besonders spektakulär aus, ist halt auch nur eine Normalverteilung, allerdings nun mit <span class="math inline">\(\mu = 0\)</span> und <span class="math inline">\(\sigma=1\)</span>. Bezogen auf die Bereiche in <a href="#tbl-ztest-dnorm" class="quarto-xref">Tabelle&nbsp;<span>5.1</span></a> bedeutet dies nun aber, dass etwa <span class="math inline">\(68\%\)</span> der Werte in den Bereich <span class="math inline">\([-1,1]\)</span>, <span class="math inline">\(95\%\)</span> in den Bereich <span class="math inline">\([-2,2]\)</span> und <span class="math inline">\(99\%\)</span> der Werte in den Bereich <span class="math inline">\([-3,3]\)</span>. Richtig nüztlich wird, dies nun wenn die z-Transformation angewendet wird.</p>
+<p>Wenig überraschend sieht die Standardnormalverteilung nicht besonders spektakulär aus. Sie ist halt auch nur eine Normalverteilung, allerdings nun mit <span class="math inline">\(\mu = 0\)</span> und <span class="math inline">\(\sigma=1\)</span>. Bezogen auf die Bereiche in <a href="#tbl-ztest-dnorm" class="quarto-xref">Tabelle&nbsp;<span>5.1</span></a> bedeutet dies nun, dass etwa <span class="math inline">\(68\%\)</span> der Werte in den Bereich <span class="math inline">\([-1,1]\)</span>, <span class="math inline">\(95\%\)</span> in den Bereich <span class="math inline">\([-2,2]\)</span> und <span class="math inline">\(99\%\)</span> der Werte in den Bereich <span class="math inline">\([-3,3]\)</span>. Richtig nützlich wird dies nun wenn die z-Transformation angewendet wird.</p>
 <section id="z-transformation" class="level3" data-number="5.1.1">
 <h3 data-number="5.1.1" class="anchored" data-anchor-id="z-transformation"><span class="header-section-number">5.1.1</span> z-Transformation</h3>
-<p>Die z-Transformation erlaubt die Abbildung einer beliebigen normalverteilten Zufallsvariable <span class="math inline">\(X\)</span> mit Parametern <span class="math inline">\(\mu\)</span> und <span class="math inline">\(\sigma\)</span> auf die Standardnormalverteilung <span class="math inline">\(\Phi(Z)\)</span> mit <span class="math inline">\(\mu = 0\)</span> und <span class="math inline">\(\sigma = 1\)</span>. D.h. eine Statistik <span class="math inline">\(X\)</span> die einer Normalverteilung <span class="math inline">\(\mathcal{N}(\mu,\sigma)\)</span> folgt kann zu einer neuen Statistik <em>umgerechnet</em> werden, die einer Standardnormalverteilung folgt.</p>
+<p>Die z-Transformation erlaubt die Abbildung einer beliebigen normalverteilten Zufallsvariable <span class="math inline">\(X\)</span> mit Parametern <span class="math inline">\(\mu\)</span> und <span class="math inline">\(\sigma\)</span> auf die Standardnormalverteilung <span class="math inline">\(\Phi(Z)\)</span> mit <span class="math inline">\(\mu = 0\)</span> und <span class="math inline">\(\sigma = 1\)</span>. D.h. eine Statistik <span class="math inline">\(X\)</span> die einer Normalverteilung <span class="math inline">\(\mathcal{N}(\mu,\sigma)\)</span> folgt kann zu einer neuen Statistik <em>umgerechnet</em> werden, die nun einer Standardnormalverteilung folgt.</p>
 <p><span id="eq-z-transform"><span class="math display">\[
 Z = \frac{X - \mu_X}{\sigma_X}
 \tag{5.2}\]</span></span></p>
-<p>D.h. es wird von dem jeweils beobachteten Wert der Mittelwert abgezogen und die Differenz wird durch die Standardabweichung geteilt. Bildlich gesprochen führt die Subtraktion dazu, dass der Wert nach links verschoben wird und anschließend die Abweichung vom Nullpunkt mittels der Standardabweichung skaliert wird.</p>
+<p>D.h. es wird von dem jeweils beobachteten Wert <span class="math inline">\(X\)</span> der Mittelwert abgezogen und die Differenz wird durch die Standardabweichung <span class="math inline">\(\sigma\)</span> geteilt. Bildlich gesprochen führt die Subtraktion dazu, dass der Wert nach links verschoben wird und anschließend die Abweichung vom Nullpunkt mittels der Standardabweichung <span class="math inline">\(\sigma\)</span> skaliert wird.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-ztest-ztransform" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ztest-ztransform-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="pics/z_transform.png" class="img-fluid figure-img" width="500">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ztest-ztransform-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;5.4: z-Transformation
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
 <div id="exm-z-transformation" class="theorem example">
-<p><span class="theorem-title"><strong>Beispiel 5.1</strong></span> Seien die folgenden Weitsprungweiten bei einer Jugendmeisterschaft beobachtet worden (siehe <a href="#fig-ztest-example-01" class="quarto-xref">Abbildung&nbsp;<span>5.4</span></a>).</p>
+<p><span class="theorem-title"><strong>Beispiel 5.1</strong></span> Seien die folgenden Weitsprungweiten bei einer Jugendmeisterschaft beobachtet worden (siehe <a href="#fig-ztest-example-01" class="quarto-xref">Abbildung&nbsp;<span>5.5</span></a>).</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-ztest-example-01" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -378,7 +393,7 @@ Z = \frac{X - \mu_X}{\sigma_X}
 <img src="stats_ztest_files/figure-html/fig-ztest-example-01-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ztest-example-01-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Abbildung&nbsp;5.4: Weitsprungweiten in Metern.
+Abbildung&nbsp;5.5: Weitsprungweiten in Metern.
 </figcaption>
 </figure>
 </div>
@@ -483,7 +498,7 @@ Z &amp;= \frac{X - \bar{X}}{\sigma_X} \\
 <blockquote class="blockquote">
 <p>Sind weibliche Sportstudentinnen an der DSHS größer als die in Deutschland lebende, weibliche Durchschnittsbevölkerung?</p>
 </blockquote>
-<p>Zunächst wird dazu die Vergleichsverteilung der Körpergrößen von Frauen in der Deutschland anhand der Werte vom statistischen Bundesamt ermittelt. Im Jahre 2018 waren in Deutschland die Frauen im Schnitt <span class="math inline">\(167 \pm 6\)</span> cm groß. Unter Annahme einer Normalverteilung ergibt sich die folgende Verteilung (siehe <a href="#fig-ztest-height-females" class="quarto-xref">Abbildung&nbsp;<span>5.5</span></a>)</p>
+<p>Zunächst wird dazu die Vergleichsverteilung der Körpergrößen von Frauen in der Deutschland anhand der Werte vom statistischen Bundesamt ermittelt. Im Jahre 2018 waren in Deutschland die Frauen im Schnitt <span class="math inline">\(167 \pm 6\)</span> cm groß. Unter Annahme einer Normalverteilung ergibt sich die folgende Verteilung (siehe <a href="#fig-ztest-height-females" class="quarto-xref">Abbildung&nbsp;<span>5.6</span></a>)</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-ztest-height-females" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -492,7 +507,7 @@ Z &amp;= \frac{X - \bar{X}}{\sigma_X} \\
 <img src="stats_ztest_files/figure-html/fig-ztest-height-females-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ztest-height-females-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Abbildung&nbsp;5.5: Verteilung der weiblichen Körpergrößen in Deutschland
+Abbildung&nbsp;5.6: Verteilung der weiblichen Körpergrößen in Deutschland
 </figcaption>
 </figure>
 </div>
@@ -507,7 +522,7 @@ E[\bar{X}] = \mu
 \sigma[\bar{X}] = \frac{\sigma}{\sqrt{N}}
 \]</span></p>
 <p>D.h. bei wiederholten Ziehung von Stichproben der Größen <span class="math inline">\(N\)</span> aus der Population nimmt die Streuung der Mittelwerte der Stichproben mit der Größe der Stichprobengröße <span class="math inline">\(N\)</span> ab. Dies sollte auch intuitive nachvollziehbar sein. Umso größer meiner Stichprobe umso weniger sollten einzelne <em>extreme</em> Werte den Mittelwert der Stichprobe beeinflussen. Die extremen Werte werden <em>ausgemittelt</em>.</p>
-<p>Bei einer Stichprobengröße mit <span class="math inline">\(N = 10\)</span> ergibt sich der folgende graphische Zusammenhang zwischen der Verteilung in der Population und der Stichprobenverteilung der Mittelwerte (siehe <a href="#fig-ztest-stichprobendist" class="quarto-xref">Abbildung&nbsp;<span>5.6</span></a>).</p>
+<p>Bei einer Stichprobengröße mit <span class="math inline">\(N = 10\)</span> ergibt sich der folgende graphische Zusammenhang zwischen der Verteilung in der Population und der Stichprobenverteilung der Mittelwerte (siehe <a href="#fig-ztest-stichprobendist" class="quarto-xref">Abbildung&nbsp;<span>5.7</span></a>).</p>
 <div id="fig-ztest-stichprobendist" class="quarto-layout-panel">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-ztest-stichprobendist-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -539,7 +554,7 @@ E[\bar{X}] = \mu
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ztest-stichprobendist-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Abbildung&nbsp;5.6: Zusammenhang zwischen der Verteilung in der Population und der Stichprobenverteilung der Mittelwerte
+Abbildung&nbsp;5.7: Zusammenhang zwischen der Verteilung in der Population und der Stichprobenverteilung der Mittelwerte
 </figcaption>
 </figure>
 </div>
@@ -616,7 +631,7 @@ Tabelle&nbsp;5.3: Kritische Werte der Standardnormalverteilung <span class="math
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="stats_ztest_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="stats_ztest_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
 <figcaption>Dotplot der Körpergrößen <span class="math inline">\(n = 37\)</span>.</figcaption>
 </figure>
 </div>
@@ -629,7 +644,7 @@ z &amp;= \frac{170.03 - 167}{\frac{6}{\sqrt{37}}} = 3.07 \\
 CI95\% &amp;= 170.03 \pm 1.96 \frac{6}{\sqrt{37}} = [168.1, 172]
 \end{aligned}
 \]</span></p>
-<p>D.h. der beobachtete z-Wert ist deutlich größere als die obere <em>kritische</em> Schranke von <span class="math inline">\(q_{0.975}=1.96\)</span>. Somit kann von einem statistisch signifikanten Ergebnis gesprochen werden und die <span class="math inline">\(H_0\)</span> wird somit verworfen. In <a href="#fig-ztest-dnorm-height" class="quarto-xref">Abbildung&nbsp;<span>5.7</span></a> ist der beobachtete Wert nochmal in die Standardnormalverteilung <span class="math inline">\(\Phi(z)\)</span> eingezeichnet.</p>
+<p>D.h. der beobachtete z-Wert ist deutlich größere als die obere <em>kritische</em> Schranke von <span class="math inline">\(q_{0.975}=1.96\)</span>. Somit kann von einem statistisch signifikanten Ergebnis gesprochen werden und die <span class="math inline">\(H_0\)</span> wird somit verworfen. In <a href="#fig-ztest-dnorm-height" class="quarto-xref">Abbildung&nbsp;<span>5.8</span></a> ist der beobachtete Wert nochmal in die Standardnormalverteilung <span class="math inline">\(\Phi(z)\)</span> eingezeichnet.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-ztest-dnorm-height" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -638,7 +653,7 @@ CI95\% &amp;= 170.03 \pm 1.96 \frac{6}{\sqrt{37}} = [168.1, 172]
 <img src="stats_ztest_files/figure-html/fig-ztest-dnorm-height-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ztest-dnorm-height-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Abbildung&nbsp;5.7: Standardnormalverteilung under der beobachtete Wert (grün)
+Abbildung&nbsp;5.8: Standardnormalverteilung under der beobachtete Wert (grün)
 </figcaption>
 </figure>
 </div>
@@ -650,7 +665,7 @@ Abbildung&nbsp;5.7: Standardnormalverteilung under der beobachtete Wert (grün)
 <section id="der-einstichproben-t-test" class="level2" data-number="5.3">
 <h2 data-number="5.3" class="anchored" data-anchor-id="der-einstichproben-t-test"><span class="header-section-number">5.3</span> Der Einstichproben t-Test</h2>
 <p>In der Praxis ist der Mittelwert <span class="math inline">\(\mu_0\)</span> der Referenzverteilung oft bekannt, da er beispielsweise aus theoretischen Überlegungen hergeleitet werden kann. Dagegen ist die Streuung <span class="math inline">\(\sigma_0\)</span> oft nicht gegeben. D.h. der z-Test kann nicht direkt angewendet werden, da ein Wert für den Standardfehler <span class="math inline">\(\sigma[\bar{X}] = \frac{\sigma_0}{\sqrt{N}}\)</span> fehlt. In diesem Fall kann <span class="math inline">\(\sigma_0\)</span> anhand der Standardabweichung <span class="math inline">\(s\)</span> der Stichprobe abgeschätzt werden. Allerdings muss dies auch bei der Abschätzung berücksichtigt wird, dann die Standardabweichung <span class="math inline">\(s\)</span> selbst ja auch einer bestimmten Unsicherheit unterliegt. Dieser Unsicherheit wird Rechnung getragen, indem die Stichprobenverteilung nun anhand einer <span class="math inline">\(t\)</span>-Verteilung mit <span class="math inline">\(N-1\)</span> Freiheitsgraden abgeschätzt wird.</p>
-<p>In <a href="#fig-ztest-dt-vs-dnorm" class="quarto-xref">Abbildung&nbsp;<span>5.8</span></a> sind die Standardnormalvereilung <span class="math inline">\(\Phi(z)\)</span> und die t-Verteilung mit <span class="math inline">\(df=36\)</span> abgetragen.</p>
+<p>In <a href="#fig-ztest-dt-vs-dnorm" class="quarto-xref">Abbildung&nbsp;<span>5.9</span></a> sind die Standardnormalvereilung <span class="math inline">\(\Phi(z)\)</span> und die t-Verteilung mit <span class="math inline">\(df=36\)</span> abgetragen.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-ztest-dt-vs-dnorm" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -659,7 +674,7 @@ Abbildung&nbsp;5.7: Standardnormalverteilung under der beobachtete Wert (grün)
 <img src="stats_ztest_files/figure-html/fig-ztest-dt-vs-dnorm-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ztest-dt-vs-dnorm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Abbildung&nbsp;5.8: Vergleich einer Standardnormalverteilung und einer t-Verteilung mit <span class="math inline">\(df=36\)</span>.
+Abbildung&nbsp;5.9: Vergleich einer Standardnormalverteilung und einer t-Verteilung mit <span class="math inline">\(df=36\)</span>.
 </figcaption>
 </figure>
 </div>
@@ -668,7 +683,7 @@ Abbildung&nbsp;5.8: Vergleich einer Standardnormalverteilung und einer t-Verteil
 <p>Es ist zu beobachten, dass die t-Verteilung in den <em>Enden</em> mehr Wahrscheinlichkeitsmasse hat, also die Standardnormalverteilung. D.h. <em>extremere</em> Werte haben unter der t-Verteilung eine höhere Wahrscheinlichkeit als unter der Standardnormalverteilung. Dies drückt die höhere Unsicherheit aus, die dadurch entsteht, dass die Standardabweichung <span class="math inline">\(\sigma_0\)</span> anhand der Stichprobe abgeschätzt wird.</p>
 <p>Der Standardfehler <span class="math inline">\(s_e\)</span> berechnet sich nun mittels</p>
 <p><span class="math display">\[
-s_e = s/\sqrt{N}
+s_e = \frac{s}{\sqrt{N}}
 \]</span></p>
 <p>D.h. die Standardabweichung <span class="math inline">\(s\)</span> der Stichprobe wird als Standardabweichung <span class="math inline">\(\sigma_0\)</span> in der Population verwendet. Ansonsten, bleibt die Form der Formel gleich:</p>
 <p><span id="eq-ttest-single"><span class="math display">\[
@@ -759,8 +774,9 @@ Tabelle&nbsp;5.4: Kritische Werte der t-Verteilung für verschiedene Quantilen.
 </div>
 <p>Das Konfidenzintervall berechnet sich ähnlich wie in <a href="#eq-ztest-ci" class="quarto-xref">Gleichung&nbsp;<span>5.3</span></a> mittels:</p>
 <p><span class="math display">\[
-95\%\text{CI} = \bar{x} \pm q_{t,df=N-1,\alpha/2} \times s_e
+95\%\text{CI} = \bar{x} \pm q_{t,df=N-1,\alpha/2} \cdot s_e
 \]</span></p>
+<p>D.h. zum beobachteten Mittelwert <span class="math inline">\(\bar{x}\)</span> wird das Produkt des kritischen Werts <span class="math inline">\(q_{t,df=N-1,\alpha/2}\)</span> und dem Standardfehler <span class="math inline">\(s_e\)</span> addiert bzw. subtrahiert.</p>
 <p>Angewendet auf das Beispiel der Sportstudentinnen von der DSHS mit <span class="math inline">\(N = 37\)</span> ergibt sich der folgende Test, mit Mittelwert <span class="math inline">\(\bar{x} = 170.03, \mu_0 = 167\)</span> und der Standardabweichung in der Stichprobe <span class="math inline">\(s = 6.64\)</span>:</p>
 <p><span class="math display">\[
 \begin{aligned}
@@ -769,6 +785,10 @@ CI95\% &amp;= 170.03 \pm 2.03 \frac{6.64}{\sqrt{37}} = [167.81, 172.25]
 \end{aligned}
 \]</span></p>
 <p>D.h. auch unter dem Einstichproben t-Test ist das Ergebnis statistisch Signifikant und die <span class="math inline">\(H_0\)</span>, dass die Stichprobe aus der Allgemeinpopulation kommt, kann abgelehnt werden.</p>
+</section>
+<section id="zusammenfassung" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="zusammenfassung"><span class="header-section-number">5.4</span> Zusammenfassung</h2>
+<p>Insgesamt folgt also, dass beide Einstichprobentests sich vor allem dazu eignen, zu überprüfen ob eine beobachtete Stichprobe aus einer Referenzpopulation kommt. Beim z-Test sind beides der Mittelwert <span class="math inline">\(\mu\)</span> und die Standardabweichung <span class="math inline">\(\sigma\)</span> bekannt, während beim t-Test nur der Mittelwert <span class="math inline">\(\mu\)</span> bekannt ist und die Standardabweichung <span class="math inline">\(\sigma\)</span> in der Population anhand der Standardabweichung <span class="math inline">\(s\)</span> aus der Stichprobe geschätzt wird.</p>
 
 
 </section>

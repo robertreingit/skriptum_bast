@@ -13,7 +13,7 @@ Einer der am einfachsten nachzuvollziehenden statistischen Tests ist der z-Test 
 
 ## Der z-Wert
 
-Wie bereits eingeführt kann die Form der Normalverteilung mittels des Mittelwerts $\mu$ und der Standardabweichung $\sigma$ verändert werden. Die mathematische Form der Normalverteilung ist wie folgt:
+Wie bereits besprochen, kann die Form der Normalverteilung mittels des Mittelwerts $\mu$ und der Standardabweichung $\sigma$ verändert werden. Die mathematische Form der Normalverteilung ist wie folgt:
 
 $$
 f(x|\mu,\sigma^2) = \frac{1}{\sqrt{2 \pi \sigma^2}}e^{\left(-\frac{(x-\mu)^2}{2\sigma^2}\right)} 
@@ -33,7 +33,7 @@ ggplot(aes(x,p)) +
   scale_y_continuous("Dichte", breaks=NULL)
 ```
 
-Anhand der Standardabweichung kann die Verteilung in Bereiche eingeteilt werden. Und zwar in die Bereiche $[\mu-\sigma,\mu+\sigma]$, $[\mu-2\cdot\sigma,\mu+2\cdot\sigma]$ und $[\mu-3\cdot\sigma,\mu+3\cdot\sigma]$. D.h. es wird jeweils ausgehend vom Mittelwert $\mu$ ein Bereich oberhalb und unterhalb mittels Multiplikation mit der Standardabweichung $\sigma$ ausgezeichnet (siehe @fig-ztest-dnorm-02).
+Die Verteilung kann nun anhand der Standardabweichung $\sigma$ in verschiedene Bereiche eingeteilt werden in denen Werte mit unterschiedlichen Wahrscheinlichkeiten auftreten. So können die Bereiche $[\mu-\sigma,\mu+\sigma]$, $[\mu-2\cdot\sigma,\mu+2\cdot\sigma]$ und $[\mu-3\cdot\sigma,\mu+3\cdot\sigma]$ beispielsweise unterschieden werden. D.h. es wird jeweils ausgehend vom Mittelwert $\mu$ ein Bereich oberhalb und unterhalb mittels Multiplikation mit der Standardabweichung $\sigma$ ausgezeichnet (siehe @fig-ztest-dnorm-02).
 
 ```{r}
 #| fig-cap: "Dichtefunktion von $\\mathcal{N}(\\mu,\\sigma^2)$"
@@ -60,7 +60,7 @@ ggplot(df, aes(x,p, ymin = 0, ymax = p)) +
   labs(x = 'Werte', y = 'Dichte') 
 ```
 
-Diese Bereiche haben jeweils ein bestimmte Wahrscheinlichkeit (siehe @tbl-ztest-dnorm).
+Da diese Bereiche unterschiedliche Flächen auszeichnen, haben diese Bereiche jeweils ein bestimmte Wahrscheinlichkeit (siehe @tbl-ztest-dnorm) und es ergibt sich die folgende Tabelle.
 
 | Bereich | Wahrscheinlichkeit |
 | --- | --- |
@@ -70,9 +70,9 @@ Diese Bereiche haben jeweils ein bestimmte Wahrscheinlichkeit (siehe @tbl-ztest-
 
 : Bereiche der Normalverteilung {#tbl-ztest-dnorm}
 
-D.h., wenn eine Statistik einer Normalverteilung folgt, dann ist die Wahrscheinlichkeit, dass der Wert innerhalb des Bereiches $\pm \sigma$ vom Mittelwert $\mu$ fällt etwas $68\%$. Die Wahrscheinlickeiten sind nicht exakt, aber können in vielen Fällen als einfache *Daumenregeln* verwendet werden.
+D.h., wenn eine Statistik einer Normalverteilung folgt, dann ist die Wahrscheinlichkeit, dass der Wert innerhalb des Bereiches $\pm \sigma$ um den Mittelwert $\mu$ herum fällt etwa $68\%$. Die Wahrscheinlickeiten sind nicht exakt, aber können in vielen Fällen als einfache *Daumenregeln* verwendet werden.
 
-Nun ist es manchmal etwas müßig die Bereiche immer auszurechnen und es wäre einfacher wenn eine Normalverteilung verwendet würde bei der diese Bereich *direkt* ablesbar sind. Die Normalverteilung die dies erfüllt ist die Standardnormalverteilung.
+Nun ist es manchmal etwas müßig die Bereiche immer auszurechnen und es wäre einfacher wenn eine Normalverteilung verwendet würde bei der die Bereiche *direkt* ablesbar sind. Diejenige Normalverteilung die dies erfüllt ist die Standardnormalverteilung.
 
 ::: {#def-standard-normal}
 ## Standardnormalverteilung $\Phi(z)$
@@ -80,7 +80,7 @@ Nun ist es manchmal etwas müßig die Bereiche immer auszurechnen und es wäre e
 Die Standardnormalverteilung ist die Normalverteilung mit Mittelwert $\mu=0$ und Standardabweichung $\sigma=1$.
 :::
 
-Die Standardnormalverteilung hat auch eine zentrale Rolle in der theoretischen Statistik, so dass sie ein eigenes Simbol $\Phi$ spendiert bekommen hat. In @fig-ztest-stdnorm-01 ist die Dichtekurve der Standardnormalverteilung abgetragen.
+Die Standardnormalverteilung hat auch eine zentrale Rolle in der theoretischen Statistik, so dass sie ein eigenes Symbol $\Phi$ spendiert bekommen hat. In @fig-ztest-stdnorm-01 ist die Dichtekurve der Standardnormalverteilung abgetragen.
 
 ```{r}
 #| fig-cap: "Dichtefunktion der Standardnormalverteilung $\\Phi(x)$ mit $\\mu=0$ und $\\sigma^2=1$"
@@ -107,17 +107,25 @@ ggplot(df, aes(x,p, ymin = 0, ymax = p)) +
   labs(x = 'Werte', y = 'Dichte') 
 ```
 
-Sieht nicht besonders spektakulär aus, ist halt auch nur eine Normalverteilung, allerdings nun mit $\mu = 0$ und $\sigma=1$. Bezogen auf die Bereiche in @tbl-ztest-dnorm bedeutet dies nun aber, dass etwa $68\%$ der Werte in den Bereich $[-1,1]$, $95\%$ in den Bereich $[-2,2]$ und $99\%$ der Werte in den Bereich $[-3,3]$. Richtig nüztlich wird, dies nun wenn die z-Transformation angewendet wird.
+Wenig überraschend sieht die Standardnormalverteilung nicht besonders spektakulär aus. Sie ist halt auch nur eine Normalverteilung, allerdings nun mit $\mu = 0$ und $\sigma=1$. Bezogen auf die Bereiche in @tbl-ztest-dnorm bedeutet dies nun, dass etwa $68\%$ der Werte in den Bereich $[-1,1]$, $95\%$ in den Bereich $[-2,2]$ und $99\%$ der Werte in den Bereich $[-3,3]$. Richtig nützlich wird dies nun wenn die z-Transformation angewendet wird.
 
 ### z-Transformation
 
-Die z-Transformation erlaubt die Abbildung einer beliebigen normalverteilten Zufallsvariable $X$ mit Parametern $\mu$ und $\sigma$ auf die Standardnormalverteilung $\Phi(Z)$ mit $\mu = 0$ und $\sigma = 1$. D.h. eine Statistik $X$ die einer Normalverteilung $\mathcal{N}(\mu,\sigma)$ folgt kann zu einer neuen Statistik *umgerechnet* werden, die einer Standardnormalverteilung folgt.
+Die z-Transformation erlaubt die Abbildung einer beliebigen normalverteilten Zufallsvariable $X$ mit Parametern $\mu$ und $\sigma$ auf die Standardnormalverteilung $\Phi(Z)$ mit $\mu = 0$ und $\sigma = 1$. D.h. eine Statistik $X$ die einer Normalverteilung $\mathcal{N}(\mu,\sigma)$ folgt kann zu einer neuen Statistik *umgerechnet* werden, die nun einer Standardnormalverteilung folgt.
 
 $$
 Z = \frac{X - \mu_X}{\sigma_X} 
 $$ {#eq-z-transform}
 
-D.h. es wird von dem jeweils beobachteten Wert der Mittelwert abgezogen und die Differenz wird durch die Standardabweichung geteilt. Bildlich gesprochen führt die Subtraktion dazu, dass der Wert nach links verschoben wird und anschließend die Abweichung vom Nullpunkt mittels der Standardabweichung skaliert wird.
+D.h. es wird von dem jeweils beobachteten Wert $X$ der Mittelwert abgezogen und die Differenz wird durch die Standardabweichung $\sigma$ geteilt. Bildlich gesprochen führt die Subtraktion dazu, dass der Wert nach links verschoben wird und anschließend die Abweichung vom Nullpunkt mittels der Standardabweichung $\sigma$ skaliert wird.
+
+
+```{r}
+#| fig-cap: "z-Transformation"
+#| label: fig-ztest-ztransform
+
+knitr::include_graphics("pics/z_transform.png")
+```
 
 ::: {#exm-z-transformation}
 
@@ -377,7 +385,7 @@ Es ist zu beobachten, dass die t-Verteilung in den *Enden* mehr Wahrscheinlichke
 Der Standardfehler $s_e$ berechnet sich nun mittels
 
 $$
-s_e = s/\sqrt{N}
+s_e = \frac{s}{\sqrt{N}}
 $$
 
 D.h. die Standardabweichung $s$ der Stichprobe wird als Standardabweichung $\sigma_0$ in der Population verwendet. Ansonsten, bleibt die Form der Formel gleich:
@@ -422,9 +430,10 @@ q_ts |>
 Das Konfidenzintervall berechnet sich ähnlich wie in @eq-ztest-ci mittels:
 
 $$
-95\%\text{CI} = \bar{x} \pm q_{t,df=N-1,\alpha/2} \times s_e
+95\%\text{CI} = \bar{x} \pm q_{t,df=N-1,\alpha/2} \cdot s_e
 $$
 
+D.h. zum beobachteten Mittelwert $\bar{x}$ wird das Produkt des kritischen Werts $q_{t,df=N-1,\alpha/2}$ und dem Standardfehler $s_e$ addiert bzw. subtrahiert.
 
 ```{r}
 s <- round(sd(df$height), 2)
@@ -447,5 +456,8 @@ $$
 
 D.h. auch unter dem Einstichproben t-Test ist das Ergebnis statistisch Signifikant und die $H_0$, dass die Stichprobe aus der Allgemeinpopulation kommt, kann abgelehnt werden.
 
+## Zusammenfassung
+
+Insgesamt folgt also, dass beide Einstichprobentests sich vor allem dazu eignen, zu überprüfen ob eine beobachtete Stichprobe aus einer Referenzpopulation kommt. Beim z-Test sind beides der Mittelwert $\mu$ und die Standardabweichung $\sigma$ bekannt, während beim t-Test nur der Mittelwert $\mu$ bekannt ist und die Standardabweichung $\sigma$ in der Population anhand der Standardabweichung $s$ aus der Stichprobe geschätzt wird.
 
 
